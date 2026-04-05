@@ -1188,7 +1188,7 @@ async function pushToGitHub() {
     if (html.includes(marker)) {
       html = html.replace(/\/\* __TEAS_DATA__ \*\/[\s\S]*?;/, newBlock);
     } else {
-      // Fallback : injecter juste avant </script> de fermeture du bloc init
+      // Fallback : injecter juste avant <\/script> de fermeture du bloc init
       html = html.replace('function init() {', newBlock + '\n\nfunction init() {');
     }
 
