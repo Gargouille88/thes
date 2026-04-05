@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ma Collection de ThÃÂ©s</title>
+<title>Ma Collection de ThÃÂÃÂ©s</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -149,14 +149,14 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 
 <header>
   <div class="header-title">
-    <h1>Ã¢ÂÂ Ma Collection de ThÃÂ©s</h1>
-    <span class="kanji">Ã¨ÂÂ¶</span>
+    <h1>ÃÂ¢ÃÂÃÂ Ma Collection de ThÃÂÃÂ©s</h1>
+    <span class="kanji">ÃÂ¨ÃÂÃÂ¶</span>
   </div>
   <div class="header-actions">
-    <div id="saving-indicator"><div class="spinner"></div> SauvegardeÃ¢ÂÂ¦</div>
-    <button class="btn btn-outline" onclick="openExportModal()">Ã¢ÂÂ CSV</button>
-    <button class="btn btn-outline" onclick="openImportModal()">Ã¢ÂÂ CSV</button>
-    <button class="btn btn-outline" onclick="toggleTokenBanner()">Ã°ÂÂÂ Token</button>
+    <div id="saving-indicator"><div class="spinner"></div> SauvegardeÃÂ¢ÃÂÃÂ¦</div>
+    <button class="btn btn-outline" onclick="openExportModal()">ÃÂ¢ÃÂÃÂ CSV</button>
+    <button class="btn btn-outline" onclick="openImportModal()">ÃÂ¢ÃÂÃÂ CSV</button>
+    <button class="btn btn-outline" onclick="toggleTokenBanner()">ÃÂ°ÃÂÃÂÃÂ Token</button>
   </div>
 </header>
 
@@ -170,14 +170,14 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 
 <nav class="tabs">
   <button class="tab-btn active" onclick="switchTab('collection')" id="tab-collection">Collection</button>
-  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">ÃÂ racheter</button>
+  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">ÃÂÃÂ racheter</button>
   <button class="tab-btn" onclick="switchTab('stats')" id="tab-stats">Statistiques</button>
 </nav>
 
 <main>
   <div id="view-collection">
     <div class="filters-bar">
-      <input type="text" id="search" placeholder="RechercherÃ¢ÂÂ¦" oninput="renderCollection()" />
+      <input type="text" id="search" placeholder="RechercherÃÂ¢ÃÂÃÂ¦" oninput="renderCollection()" />
       <select id="filter-type" onchange="renderCollection()">
         <option value="">Tous types</option>
         <option value="vert">Vert</option><option value="noir">Noir</option>
@@ -188,8 +188,8 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
       <select id="filter-statut" onchange="renderCollection()">
         <option value="">Tous statuts</option>
         <option value="en-stock">En stock</option>
-        <option value="epuise">ÃÂpuisÃÂ©</option>
-        <option value="a-racheter">ÃÂ racheter</option>
+        <option value="epuise">ÃÂÃÂpuisÃÂÃÂ©</option>
+        <option value="a-racheter">ÃÂÃÂ racheter</option>
       </select>
       <select id="filter-origine" onchange="renderCollection()">
         <option value="">Toutes origines</option>
@@ -200,19 +200,19 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
     <div class="tea-table-wrap">
       <table class="tea-table">
         <thead><tr>
-          <th onclick="sortBy('nom')" id="th-nom">Nom Ã¢ÂÂ</th>
-          <th onclick="sortBy('type')" id="th-type">Type Ã¢ÂÂ</th>
-          <th onclick="sortBy('origine')" id="th-origine">Origine Ã¢ÂÂ</th>
-          <th onclick="sortBy('statut')" id="th-statut">Statut Ã¢ÂÂ</th>
-          <th onclick="sortBy('note')" id="th-note">Note Ã¢ÂÂ</th>
-          <th onclick="sortBy('prix')" id="th-prix">Prix Ã¢ÂÂ</th>
+          <th onclick="sortBy('nom')" id="th-nom">Nom ÃÂ¢ÃÂÃÂ</th>
+          <th onclick="sortBy('type')" id="th-type">Type ÃÂ¢ÃÂÃÂ</th>
+          <th onclick="sortBy('origine')" id="th-origine">Origine ÃÂ¢ÃÂÃÂ</th>
+          <th onclick="sortBy('statut')" id="th-statut">Statut ÃÂ¢ÃÂÃÂ</th>
+          <th onclick="sortBy('note')" id="th-note">Note ÃÂ¢ÃÂÃÂ</th>
+          <th onclick="sortBy('prix')" id="th-prix">Prix ÃÂ¢ÃÂÃÂ</th>
           <th>Fournisseur</th>
           <th>Commentaire</th>
         </tr></thead>
         <tbody id="tea-tbody"></tbody>
       </table>
       <div id="tea-empty" class="empty-state" style="display:none">
-        <div class="icon">Ã°ÂÂÂµ</div><p id="tea-empty-msg">Votre collection est vide.</p>
+        <div class="icon">ÃÂ°ÃÂÃÂÃÂµ</div><p id="tea-empty-msg">Votre collection est vide.</p>
       </div>
     </div>
   </div>
@@ -228,30 +228,30 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
         <tbody id="racheter-tbody"></tbody>
       </table>
       <div id="racheter-empty" class="empty-state" style="display:none">
-        <div class="icon">Ã¢ÂÂ</div><p>Aucun thÃÂ© ÃÂ  racheter !</p>
+        <div class="icon">ÃÂ¢ÃÂÃÂ</div><p>Aucun thÃÂÃÂ© ÃÂÃÂ  racheter !</p>
       </div>
     </div>
   </div>
 
   <div id="view-stats" style="display:none">
     <div class="stats-grid" id="stats-cards"></div>
-    <div class="bar-chart"><div class="section-title">Ã°ÂÂÂµ Par type</div><div id="chart-type"></div></div>
-    <div class="bar-chart"><div class="section-title">Ã°ÂÂÂ Par origine</div><div id="chart-origine"></div></div>
-    <div><div class="section-title">Ã°ÂÂÂª Fournisseurs</div>
+    <div class="bar-chart"><div class="section-title">ÃÂ°ÃÂÃÂÃÂµ Par type</div><div id="chart-type"></div></div>
+    <div class="bar-chart"><div class="section-title">ÃÂ°ÃÂÃÂÃÂ Par origine</div><div id="chart-origine"></div></div>
+    <div><div class="section-title">ÃÂ°ÃÂÃÂÃÂª Fournisseurs</div>
       <table class="fournisseur-table" id="table-fournisseurs">
-        <thead><tr><th>Fournisseur</th><th>ThÃÂ©s</th><th>Note moy.</th><th>Valeur</th></tr></thead>
+        <thead><tr><th>Fournisseur</th><th>ThÃÂÃÂ©s</th><th>Note moy.</th><th>Valeur</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
   </div>
 </main>
 
-<!-- MODAL THÃÂ -->
+<!-- MODAL THÃÂÃÂ -->
 <div class="modal-overlay" id="modal-tea">
   <div class="modal">
     <div class="modal-header">
-      <h2 id="modal-title">Nouveau thÃÂ©</h2>
-      <button class="modal-close" onclick="closeModal('modal-tea')">Ã¢ÂÂ</button>
+      <h2 id="modal-title">Nouveau thÃÂÃÂ©</h2>
+      <button class="modal-close" onclick="closeModal('modal-tea')">ÃÂ¢ÃÂÃÂ</button>
     </div>
     <div class="modal-body">
       <div class="form-row">
@@ -271,41 +271,41 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
       </div>
 
       <div class="form-group">
-        <label>Origine Ã¢ÂÂ saisir manuellement ou choisir dans la liste</label>
+        <label>Origine ÃÂ¢ÃÂÃÂ saisir manuellement ou choisir dans la liste</label>
         <div class="origine-wrap">
           <input type="text" id="f-origine" placeholder="Ex: Uji, Japon" />
           <select id="f-origine-sel" onchange="applyOrigSel()">
-            <option value="">Ã¢ÂÂ Suggestions Ã¢ÂÂ</option>
-            <optgroup label="Ã°ÂÂÂ¯Ã°ÂÂÂµ Japon">
+            <option value="">ÃÂ¢ÃÂÃÂ Suggestions ÃÂ¢ÃÂÃÂ</option>
+            <optgroup label="ÃÂ°ÃÂÃÂÃÂ¯ÃÂ°ÃÂÃÂÃÂµ Japon">
               <option>Uji, Japon</option><option>Shizuoka, Japon</option>
               <option>Kagoshima, Japon</option><option>Kyoto, Japon</option>
               <option>Nishio, Japon</option><option>Yame, Japon</option>
               <option>Wazuka, Japon</option>
             </optgroup>
-            <optgroup label="Ã°ÂÂÂ¨Ã°ÂÂÂ³ Chine">
+            <optgroup label="ÃÂ°ÃÂÃÂÃÂ¨ÃÂ°ÃÂÃÂÃÂ³ Chine">
               <option>Yunnan, Chine</option><option>Fujian, Chine</option>
               <option>Zhejiang, Chine</option><option>Anhui, Chine</option>
               <option>Sichuan, Chine</option><option>Guangdong, Chine</option>
               <option>Hunan, Chine</option><option>Wuyi, Chine</option>
               <option>Anxi, Chine</option><option>Yunnan Pu-erh, Chine</option>
             </optgroup>
-            <optgroup label="Ã°ÂÂÂ¹Ã°ÂÂÂ¼ TaÃÂ¯wan">
-              <option>Alishan, TaÃÂ¯wan</option><option>Li Shan, TaÃÂ¯wan</option>
-              <option>Dong Ding, TaÃÂ¯wan</option><option>Nantou, TaÃÂ¯wan</option>
-              <option>Sun Moon Lake, TaÃÂ¯wan</option>
+            <optgroup label="ÃÂ°ÃÂÃÂÃÂ¹ÃÂ°ÃÂÃÂÃÂ¼ TaÃÂÃÂ¯wan">
+              <option>Alishan, TaÃÂÃÂ¯wan</option><option>Li Shan, TaÃÂÃÂ¯wan</option>
+              <option>Dong Ding, TaÃÂÃÂ¯wan</option><option>Nantou, TaÃÂÃÂ¯wan</option>
+              <option>Sun Moon Lake, TaÃÂÃÂ¯wan</option>
             </optgroup>
-            <optgroup label="Ã°ÂÂÂ®Ã°ÂÂÂ³ Inde">
+            <optgroup label="ÃÂ°ÃÂÃÂÃÂ®ÃÂ°ÃÂÃÂÃÂ³ Inde">
               <option>Darjeeling, Inde</option><option>Assam, Inde</option>
               <option>Nilgiri, Inde</option><option>Sikkim, Inde</option>
             </optgroup>
-            <optgroup label="Ã°ÂÂÂ±Ã°ÂÂÂ° Sri Lanka">
+            <optgroup label="ÃÂ°ÃÂÃÂÃÂ±ÃÂ°ÃÂÃÂÃÂ° Sri Lanka">
               <option>Nuwara Eliya, Sri Lanka</option><option>Kandy, Sri Lanka</option>
               <option>Uva, Sri Lanka</option><option>Dimbula, Sri Lanka</option>
             </optgroup>
-            <optgroup label="Ã°ÂÂÂ Afrique &amp; Autres">
+            <optgroup label="ÃÂ°ÃÂÃÂÃÂ Afrique &amp; Autres">
               <option>Kenya</option><option>Rwanda</option><option>Cameroun</option>
-              <option>NÃÂ©pal</option><option>Vietnam</option><option>ThaÃÂ¯lande</option>
-              <option>GÃÂ©orgie</option><option>Turquie</option>
+              <option>NÃÂÃÂ©pal</option><option>Vietnam</option><option>ThaÃÂÃÂ¯lande</option>
+              <option>GÃÂÃÂ©orgie</option><option>Turquie</option>
             </optgroup>
           </select>
         </div>
@@ -316,19 +316,19 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
           <label>Statut</label>
           <select id="f-statut">
             <option value="en-stock">En stock</option>
-            <option value="epuise">ÃÂpuisÃÂ©</option>
-            <option value="a-racheter">ÃÂ racheter</option>
+            <option value="epuise">ÃÂÃÂpuisÃÂÃÂ©</option>
+            <option value="a-racheter">ÃÂÃÂ racheter</option>
           </select>
         </div>
         <div class="form-group">
           <label>Fournisseur</label>
-          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des ThÃÂ©s" />
+          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des ThÃÂÃÂ©s" />
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Prix pour 100g (Ã¢ÂÂ¬)</label>
+          <label>Prix pour 100g (ÃÂ¢ÃÂÃÂ¬)</label>
           <input type="number" id="f-prix" placeholder="0.00" min="0" step="0.01" oninput="updatePrixPrev()" />
           <div class="prix-preview" id="prix-preview"></div>
         </div>
@@ -336,7 +336,7 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
           <label>Note /20</label>
           <div class="note-widget">
             <div class="note-input-row">
-              <input type="number" id="f-note" min="0" max="20" step="0.5" placeholder="Ã¢ÂÂ" oninput="syncStars()" />
+              <input type="number" id="f-note" min="0" max="20" step="0.5" placeholder="ÃÂ¢ÃÂÃÂ" oninput="syncStars()" />
               <span style="font-size:12px;color:var(--ink-light)">/20</span>
             </div>
             <div class="stars-interactive" id="stars-widget"></div>
@@ -347,7 +347,7 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 
       <div class="form-group">
         <label>Commentaire personnel</label>
-        <textarea id="f-commentaire" placeholder="ArÃÂ´mes, infusion, anecdotesÃ¢ÂÂ¦"></textarea>
+        <textarea id="f-commentaire" placeholder="ArÃÂÃÂ´mes, infusion, anecdotesÃÂ¢ÃÂÃÂ¦"></textarea>
       </div>
     </div>
     <div class="modal-footer">
@@ -361,11 +361,11 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 <!-- MODAL EXPORT -->
 <div class="modal-overlay" id="modal-export">
   <div class="modal">
-    <div class="modal-header"><h2>Exporter CSV</h2><button class="modal-close" onclick="closeModal('modal-export')">Ã¢ÂÂ</button></div>
+    <div class="modal-header"><h2>Exporter CSV</h2><button class="modal-close" onclick="closeModal('modal-export')">ÃÂ¢ÃÂÃÂ</button></div>
     <div class="modal-body"><textarea class="csv-area" id="csv-output" readonly></textarea></div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-export')">Fermer</button>
-      <button class="btn btn-accent" onclick="downloadCSV()">Ã¢ÂÂ TÃÂ©lÃÂ©charger</button>
+      <button class="btn btn-accent" onclick="downloadCSV()">ÃÂ¢ÃÂÃÂ TÃÂÃÂ©lÃÂÃÂ©charger</button>
     </div>
   </div>
 </div>
@@ -373,11 +373,11 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 <!-- MODAL IMPORT -->
 <div class="modal-overlay" id="modal-import">
   <div class="modal">
-    <div class="modal-header"><h2>Importer CSV</h2><button class="modal-close" onclick="closeModal('modal-import')">Ã¢ÂÂ</button></div>
+    <div class="modal-header"><h2>Importer CSV</h2><button class="modal-close" onclick="closeModal('modal-import')">ÃÂ¢ÃÂÃÂ</button></div>
     <div class="modal-body">
       <p style="font-size:12px;margin-bottom:9px;color:var(--ink-light)">Format : nom,type,origine,statut,fournisseur,prix,note,commentaire</p>
       <textarea class="csv-area" id="csv-input" placeholder="nom,type,origine,statut,fournisseur,prix,note,commentaire"></textarea>
-      <p style="font-size:11px;margin-top:5px;color:#c0392b">Ã¢ÂÂ  Remplace toute la collection existante.</p>
+      <p style="font-size:11px;margin-top:5px;color:#c0392b">ÃÂ¢ÃÂÃÂ  Remplace toute la collection existante.</p>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-import')">Annuler</button>
@@ -393,8 +393,8 @@ const GITHUB_OWNER='gargouille88', GITHUB_REPO='thes', GITHUB_FILE='index.html',
 let TEAS=[], editingId=null, sortField='nom', sortAsc=true;
 
 const TYPE_COLORS={'vert':'#5a7a4a','noir':'#1a1611','oolong':'#c4955a','blanc':'#c8baa8','pu-erh':'#7a4a3a','matcha':'#8aab6f','infusion':'#d4a0b0','autre':'#a0a090'};
-const STATUS_MAP={'en-stock':{icon:'Ã¢ÂÂ',label:'En stock',cls:'st-en-stock'},'epuise':{icon:'Ã¢ÂÂ',label:'ÃÂpuisÃÂ©',cls:'st-epuise'},'a-racheter':{icon:'Ã¢ÂÂ»',label:'ÃÂ racheter',cls:'st-a-racheter'}};
-const NOTE_LABELS=['','Imbuvable','TrÃÂ¨s mauvais','Mauvais','DÃÂ©cevant','Passable','Moyen','Correct','Bien','TrÃÂ¨s bien','Excellent','Sublime','Exceptionnel','Divin','Parfait','Chef-d\'ÃÂuvre','Incomparable','Transcendant','Mystique','LÃÂ©gendaire','Absolu Ã¨ÂÂ¶'];
+const STATUS_MAP={'en-stock':{icon:'ÃÂ¢ÃÂÃÂ',label:'En stock',cls:'st-en-stock'},'epuise':{icon:'ÃÂ¢ÃÂÃÂ',label:'ÃÂÃÂpuisÃÂÃÂ©',cls:'st-epuise'},'a-racheter':{icon:'ÃÂ¢ÃÂÃÂ»',label:'ÃÂÃÂ racheter',cls:'st-a-racheter'}};
+const NOTE_LABELS=['','Imbuvable','TrÃÂÃÂ¨s mauvais','Mauvais','DÃÂÃÂ©cevant','Passable','Moyen','Correct','Bien','TrÃÂÃÂ¨s bien','Excellent','Sublime','Exceptionnel','Divin','Parfait','Chef-d\'ÃÂÃÂuvre','Incomparable','Transcendant','Mystique','LÃÂÃÂ©gendaire','Absolu ÃÂ¨ÃÂÃÂ¶'];
 
 function init(){loadLocal();buildStars();renderAll();updateTokenStatus();populateOrigineFilter();}
 function loadLocal(){try{const r=localStorage.getItem('teas_data');if(r)TEAS=JSON.parse(r);}catch(e){}}
@@ -402,9 +402,9 @@ function saveLocal(){localStorage.setItem('teas_data',JSON.stringify(TEAS));}
 function getToken(){return localStorage.getItem('gh_token')||'';}
 
 function toggleTokenBanner(){const b=document.getElementById('token-banner');b.classList.toggle('hidden');if(!b.classList.contains('hidden'))document.getElementById('token-input').value=getToken();}
-function saveToken(){const v=document.getElementById('token-input').value.trim();if(v){localStorage.setItem('gh_token',v);showToast('Token enregistrÃÂ© Ã¢ÂÂ');updateTokenStatus();}}
-function clearToken(){localStorage.removeItem('gh_token');document.getElementById('token-input').value='';updateTokenStatus();showToast('Token effacÃÂ©');}
-function updateTokenStatus(){const t=getToken(),el=document.getElementById('token-status'),btn=document.getElementById('btn-add');if(t){el.textContent='Ã¢ÂÂ Actif';el.style.color='#90d070';btn&&btn.classList.remove('hidden');}else{el.textContent='Ã¢ÂÂ  Lecture seule';el.style.color='#f0c060';btn&&btn.classList.add('hidden');}}
+function saveToken(){const v=document.getElementById('token-input').value.trim();if(v){localStorage.setItem('gh_token',v);showToast('Token enregistrÃÂÃÂ© ÃÂ¢ÃÂÃÂ');updateTokenStatus();}}
+function clearToken(){localStorage.removeItem('gh_token');document.getElementById('token-input').value='';updateTokenStatus();showToast('Token effacÃÂÃÂ©');}
+function updateTokenStatus(){const t=getToken(),el=document.getElementById('token-status'),btn=document.getElementById('btn-add');if(t){el.textContent='ÃÂ¢ÃÂÃÂ Actif';el.style.color='#90d070';btn&&btn.classList.remove('hidden');}else{el.textContent='ÃÂ¢ÃÂÃÂ  Lecture seule';el.style.color='#f0c060';btn&&btn.classList.add('hidden');}}
 
 function switchTab(tab){['collection','racheter','stats'].forEach(t=>{document.getElementById('view-'+t).style.display=t===tab?'':'none';document.getElementById('tab-'+t).classList.toggle('active',t===tab);});if(tab==='stats')renderStats();if(tab==='racheter')renderRacheter();}
 
@@ -430,15 +430,15 @@ function renderAll(){renderCollection();populateOrigineFilter();}
 
 function renderCollection(){
   const teas=sortedFiltered();
-  document.getElementById('count-badge').textContent=teas.length+' thÃÂ©'+(teas.length!==1?'s':'');
+  document.getElementById('count-badge').textContent=teas.length+' thÃÂÃÂ©'+(teas.length!==1?'s':'');
   const tbody=document.getElementById('tea-tbody'),empty=document.getElementById('tea-empty');
-  if(!teas.length){tbody.innerHTML='';empty.style.display='';document.getElementById('tea-empty-msg').textContent=TEAS.length?'Aucun thÃÂ© ne correspond.':'Votre collection est vide. Ajoutez votre premier thÃÂ© !';return;}
+  if(!teas.length){tbody.innerHTML='';empty.style.display='';document.getElementById('tea-empty-msg').textContent=TEAS.length?'Aucun thÃÂÃÂ© ne correspond.':'Votre collection est vide. Ajoutez votre premier thÃÂÃÂ© !';return;}
   empty.style.display='none';tbody.innerHTML=teas.map(t=>teaRow(t,false)).join('');
 }
 
 function renderRacheter(){
   const teas=TEAS.filter(t=>t.statut==='a-racheter');
-  document.getElementById('racheter-badge').textContent=teas.length+' thÃÂ©'+(teas.length!==1?'s':'')+' ÃÂ  racheter';
+  document.getElementById('racheter-badge').textContent=teas.length+' thÃÂÃÂ©'+(teas.length!==1?'s':'')+' ÃÂÃÂ  racheter';
   const tbody=document.getElementById('racheter-tbody'),empty=document.getElementById('racheter-empty');
   if(!teas.length){tbody.innerHTML='';empty.style.display='';return;}
   empty.style.display='none';tbody.innerHTML=teas.map(t=>teaRow(t,true)).join('');
@@ -446,23 +446,23 @@ function renderRacheter(){
 
 function teaRow(t,simple){
   const s=STATUS_MAP[t.statut]||STATUS_MAP['en-stock'];
-  const noteHtml=t.note?`${starsDisplay(t.note)}<span class="note-num">${parseFloat(t.note).toFixed(1)}/20</span>`:'<span style="color:#ccc">Ã¢ÂÂ</span>';
-  const prixHtml=t.prix?`<div class="prix-cell"><div class="prix-100">${parseFloat(t.prix).toFixed(2)} Ã¢ÂÂ¬/100g</div><div class="prix-kg">${(parseFloat(t.prix)*10).toFixed(2)} Ã¢ÂÂ¬/kg</div></div>`:'Ã¢ÂÂ';
+  const noteHtml=t.note?`${starsDisplay(t.note)}<span class="note-num">${parseFloat(t.note).toFixed(1)}/20</span>`:'<span style="color:#ccc">ÃÂ¢ÃÂÃÂ</span>';
+  const prixHtml=t.prix?`<div class="prix-cell"><div class="prix-100">${parseFloat(t.prix).toFixed(2)} ÃÂ¢ÃÂÃÂ¬/100g</div><div class="prix-kg">${(parseFloat(t.prix)*10).toFixed(2)} ÃÂ¢ÃÂÃÂ¬/kg</div></div>`:'ÃÂ¢ÃÂÃÂ';
   return `<tr class="strip-${t.type}" onclick="openEditModal('${t.id}')">
     <td><strong>${t.nom}</strong></td>
     <td><span class="type-badge tb-${t.type}">${t.type}</span></td>
-    <td>${t.origine||'Ã¢ÂÂ'}</td>
+    <td>${t.origine||'ÃÂ¢ÃÂÃÂ'}</td>
     ${simple?'':`<td><span class="status-badge ${s.cls}">${s.icon} ${s.label}</span></td>`}
     <td style="white-space:nowrap">${noteHtml}</td>
     <td>${prixHtml}</td>
-    <td>${t.fournisseur||'Ã¢ÂÂ'}</td>
+    <td>${t.fournisseur||'ÃÂ¢ÃÂÃÂ'}</td>
     <td><span class="note-preview">${t.commentaire||''}</span></td>
   </tr>`;
 }
 
 function starsDisplay(note){
   const n=parseFloat(note),full=Math.floor(n/2),half=(n%2)>=1?1:0,empty=10-full-half;
-  return `<span class="stars-row">${'<span class="star full">Ã¢ÂÂ</span>'.repeat(full)}${half?'<span class="star half">Ã¢ÂÂ</span>':''} ${'<span class="star empty">Ã¢ÂÂ</span>'.repeat(empty)}</span>`;
+  return `<span class="stars-row">${'<span class="star full">ÃÂ¢ÃÂÃÂ</span>'.repeat(full)}${half?'<span class="star half">ÃÂ¢ÃÂÃÂ</span>':''} ${'<span class="star empty">ÃÂ¢ÃÂÃÂ</span>'.repeat(empty)}</span>`;
 }
 
 function populateOrigineFilter(){
@@ -478,7 +478,7 @@ function buildStars(){
     const s=document.createElement('span');
     s.className='si'+(i%2!==0?' si-half':'');
     s.dataset.val=i;
-    s.textContent=i%2===0?'Ã¢ÂÂ':'ÃÂ·';
+    s.textContent=i%2===0?'ÃÂ¢ÃÂÃÂ':'ÃÂÃÂ·';
     s.title=i+'/20';
     s.onclick=()=>setNote(i);
     s.onmouseover=()=>hlStars(i);
@@ -491,11 +491,11 @@ function setNote(v){document.getElementById('f-note').value=v;hlStars(v);updateN
 function hlStars(v){document.querySelectorAll('#stars-widget .si').forEach(s=>s.classList.toggle('active',parseInt(s.dataset.val)<=v));}
 function syncStars(){const v=parseFloat(document.getElementById('f-note').value)||0;hlStars(v);updateNoteLabel(v);}
 function updateNoteLabel(v){document.getElementById('note-label').textContent=NOTE_LABELS[Math.round(v)]||'';}
-function updatePrixPrev(){const v=parseFloat(document.getElementById('f-prix').value);document.getElementById('prix-preview').textContent=(!isNaN(v)&&v>0)?`Ã¢ÂÂ ${(v*10).toFixed(2)} Ã¢ÂÂ¬/kg`:'';}
+function updatePrixPrev(){const v=parseFloat(document.getElementById('f-prix').value);document.getElementById('prix-preview').textContent=(!isNaN(v)&&v>0)?`ÃÂ¢ÃÂÃÂ ${(v*10).toFixed(2)} ÃÂ¢ÃÂÃÂ¬/kg`:'';}
 function applyOrigSel(){const s=document.getElementById('f-origine-sel');if(s.value){document.getElementById('f-origine').value=s.value;s.value='';}}
 
 function openAddModal(){
-  editingId=null;document.getElementById('modal-title').textContent='Nouveau thÃÂ©';
+  editingId=null;document.getElementById('modal-title').textContent='Nouveau thÃÂÃÂ©';
   ['nom','origine','fournisseur','commentaire'].forEach(f=>document.getElementById('f-'+f).value='');
   document.getElementById('f-prix').value='';document.getElementById('f-note').value='';
   document.getElementById('f-type').value='vert';document.getElementById('f-statut').value='en-stock';
@@ -532,7 +532,7 @@ function saveTea(){
   closeModal('modal-tea');saveLocal();renderAll();pushToGitHub();
 }
 
-function deleteTea(){if(!editingId||!confirm('Supprimer ce thÃÂ© ?'))return;TEAS=TEAS.filter(t=>t.id!==editingId);closeModal('modal-tea');saveLocal();renderAll();pushToGitHub();}
+function deleteTea(){if(!editingId||!confirm('Supprimer ce thÃÂÃÂ© ?'))return;TEAS=TEAS.filter(t=>t.id!==editingId);closeModal('modal-tea');saveLocal();renderAll();pushToGitHub();}
 
 const CSV_H=['nom','type','origine','statut','fournisseur','prix','note','commentaire'];
 function teasToCSV(){return[CSV_H.join(','),...TEAS.map(t=>CSV_H.map(h=>`"${(t[h]||'').replace(/"/g,'""')}"`).join(','))].join('\n');}
@@ -547,26 +547,26 @@ function importCSV(){
   const newT=[];
   for(let i=1;i<lines.length;i++){const cells=lines[i].match(/("(?:[^"]|"")*"|[^,]*)/g)||[];const nom=parse(cells[idx('nom')]||'');if(!nom)continue;
     newT.push({id:Date.now().toString(36)+i+Math.random().toString(36).slice(2),nom,type:parse(cells[idx('type')]||'')||'autre',origine:parse(cells[idx('origine')]||''),statut:parse(cells[idx('statut')]||'')||'en-stock',fournisseur:parse(cells[idx('fournisseur')]||''),prix:parse(cells[idx('prix')]||''),note:parse(cells[idx('note')]||''),commentaire:parse(cells[idx('commentaire')]||'')});}
-  TEAS=newT;saveLocal();renderAll();closeModal('modal-import');pushToGitHub();showToast(`${newT.length} thÃÂ©s importÃÂ©s Ã¢ÂÂ`);
+  TEAS=newT;saveLocal();renderAll();closeModal('modal-import');pushToGitHub();showToast(`${newT.length} thÃÂÃÂ©s importÃÂÃÂ©s ÃÂ¢ÃÂÃÂ`);
 }
 
 function renderStats(){
   const total=TEAS.length,enStock=TEAS.filter(t=>t.statut==='en-stock').length,epuises=TEAS.filter(t=>t.statut==='epuise').length,aR=TEAS.filter(t=>t.statut==='a-racheter').length;
   const valeur=TEAS.filter(t=>t.prix).reduce((s,t)=>s+parseFloat(t.prix),0);
-  const noted=TEAS.filter(t=>t.note);const avgNote=noted.length?(noted.reduce((s,t)=>s+parseFloat(t.note),0)/noted.length).toFixed(1):'Ã¢ÂÂ';
+  const noted=TEAS.filter(t=>t.note);const avgNote=noted.length?(noted.reduce((s,t)=>s+parseFloat(t.note),0)/noted.length).toFixed(1):'ÃÂ¢ÃÂÃÂ';
   document.getElementById('stats-cards').innerHTML=`
     <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">Total</div></div>
     <div class="stat-card accent"><div class="stat-value">${enStock}</div><div class="stat-label">En stock</div></div>
-    <div class="stat-card orange"><div class="stat-value">${aR}</div><div class="stat-label">ÃÂ racheter</div></div>
-    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">ÃÂpuisÃÂ©s</div></div>
-    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}Ã¢ÂÂ¬</div><div class="stat-label">Valeur /100g</div></div>
+    <div class="stat-card orange"><div class="stat-value">${aR}</div><div class="stat-label">ÃÂÃÂ racheter</div></div>
+    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">ÃÂÃÂpuisÃÂÃÂ©s</div></div>
+    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}ÃÂ¢ÃÂÃÂ¬</div><div class="stat-label">Valeur /100g</div></div>
     <div class="stat-card gold"><div class="stat-value">${avgNote}</div><div class="stat-label">Note moy. /20</div></div>`;
   const byT={};TEAS.forEach(t=>byT[t.type]=(byT[t.type]||0)+1);const mT=Math.max(...Object.values(byT),1);
   document.getElementById('chart-type').innerHTML=Object.entries(byT).sort((a,b)=>b[1]-a[1]).map(([type,cnt])=>`<div class="bar-row"><div class="bar-label">${type}</div><div class="bar-track"><div class="bar-fill" style="width:${cnt/mT*100}%;background:${TYPE_COLORS[type]||'#888'}"></div></div><div class="bar-count">${cnt}</div></div>`).join('');
   const byO={};TEAS.forEach(t=>{if(t.origine)byO[t.origine]=(byO[t.origine]||0)+1;});const mO=Math.max(...Object.values(byO),1);
   document.getElementById('chart-origine').innerHTML=Object.entries(byO).sort((a,b)=>b[1]-a[1]).map(([o,cnt])=>`<div class="bar-row"><div class="bar-label">${o}</div><div class="bar-track"><div class="bar-fill" style="width:${cnt/mO*100}%;background:var(--tea-green)"></div></div><div class="bar-count">${cnt}</div></div>`).join('')||'<p style="color:var(--ink-light);font-size:12px">Aucune origine.</p>';
   const byF={};TEAS.forEach(t=>{if(!t.fournisseur)return;if(!byF[t.fournisseur])byF[t.fournisseur]={count:0,valeur:0,notes:[]};byF[t.fournisseur].count++;if(t.prix)byF[t.fournisseur].valeur+=parseFloat(t.prix);if(t.note)byF[t.fournisseur].notes.push(parseFloat(t.note));});
-  document.querySelector('#table-fournisseurs tbody').innerHTML=Object.entries(byF).sort((a,b)=>b[1].count-a[1].count).map(([f,d])=>{const avg=d.notes.length?(d.notes.reduce((s,v)=>s+v,0)/d.notes.length).toFixed(1)+'/20':'Ã¢ÂÂ';return`<tr><td>${f}</td><td>${d.count}</td><td>${avg}</td><td>${d.valeur>0?d.valeur.toFixed(2)+' Ã¢ÂÂ¬':'Ã¢ÂÂ'}</td></tr>`;}).join('')||'<tr><td colspan="4" style="color:var(--ink-light);font-style:italic">Aucun fournisseur.</td></tr>';
+  document.querySelector('#table-fournisseurs tbody').innerHTML=Object.entries(byF).sort((a,b)=>b[1].count-a[1].count).map(([f,d])=>{const avg=d.notes.length?(d.notes.reduce((s,v)=>s+v,0)/d.notes.length).toFixed(1)+'/20':'ÃÂ¢ÃÂÃÂ';return`<tr><td>${f}</td><td>${d.count}</td><td>${avg}</td><td>${d.valeur>0?d.valeur.toFixed(2)+' ÃÂ¢ÃÂÃÂ¬':'ÃÂ¢ÃÂÃÂ'}</td></tr>`;}).join('')||'<tr><td colspan="4" style="color:var(--ink-light);font-style:italic">Aucun fournisseur.</td></tr>';
 }
 
 function openModal(id){document.getElementById(id).classList.add('open');}
@@ -583,13 +583,13 @@ async function pushToGitHub(){
     const fd=await res.json();
     let html=atob(fd.content.replace(/\n/g,''));
     const marker='/* __TEAS_DATA__ */
-const TEAS_INIT=[{"id":"mnlzzf6ayj53bfykc5","nom":"Chinois Rouge","type":"noir","origine":"Chine","statut":"en-stock","fournisseur":"Kancha","prix":"18","note":"16","commentaire":""},{"id":"mnm0xaml0lp0akjd50uh","nom":"Golden Yunan","type":"noir","origine":"Yunnan, Chine","statut":"en-stock","fournisseur":"Palais Des thés","prix":"20.50","note":"16","commentaire":""}];
+const TEAS_INIT=[{"id":"mnlzzf6ayj53bfykc5","nom":"Chinois Rouge","type":"noir","origine":"Yunnan, Chine","statut":"en-stock","fournisseur":"Kancha","prix":"18","note":"16","commentaire":""},{"id":"mnm0xaml0lp0akjd50uh","nom":"Golden Yunan","type":"noir","origine":"Yunnan, Chine","statut":"en-stock","fournisseur":"Palais Des thés","prix":"20.50","note":"16","commentaire":""}];
     const nb=`/* __TEAS_DATA__ */\nconst TEAS_INIT=${JSON.stringify(TEAS)};`;
     html=html.includes(marker)?html.replace(/\/\* __TEAS_DATA__ \*\/[\s\S]*?;/,nb):html.replace('function init(){',nb+'\n\nfunction init(){');
     const content=btoa(unescape(encodeURIComponent(html)));
-    await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,{method:'PUT',headers:{Authorization:`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify({message:'update: collection de thÃÂ©s',content,sha:fd.sha,branch:GITHUB_BRANCH})});
-    showToast('SauvegardÃÂ© sur GitHub Ã¢ÂÂ');
-  }catch(e){console.error(e);showToast('Erreur GitHub Ã¢ÂÂ sauvegardÃÂ© en local');}
+    await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,{method:'PUT',headers:{Authorization:`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify({message:'update: collection de thÃÂÃÂ©s',content,sha:fd.sha,branch:GITHUB_BRANCH})});
+    showToast('SauvegardÃÂÃÂ© sur GitHub ÃÂ¢ÃÂÃÂ');
+  }catch(e){console.error(e);showToast('Erreur GitHub ÃÂ¢ÃÂÃÂ sauvegardÃÂÃÂ© en local');}
   finally{setSaving(false);}
 }
 function setSaving(v){document.getElementById('saving-indicator').classList.toggle('visible',v);}
