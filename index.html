@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ma Collection de Thés</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1a1611;
+  --ink-light: #3d3730;
+  --sand: #f5f0e8;
+  --sand-dark: #e8e0d0;
+  --tea-green: #5a7a4a;
+  --tea-green-light: #7a9a6a;
+  --matcha: #8aab6f;
+  --oolong: #c4955a;
+  --oolong-light: #d4a96e;
+  --white-tea: #f0ead8;
+  --puerh: #7a4a3a;
+  --accent: #c4955a;
+  --border: rgba(26,22,17,0.12);
+  --shadow: 0 2px 16px rgba(26,22,17,0.08);
+  --shadow-hover: 0 8px 32px rgba(26,22,17,0.14);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  background: var(--sand);
+  color: var(--ink);
+  min-height: 100vh;
+  font-size: 15px;
+}
+
+/* HEADER */
+header {
+  background: var(--ink);
+  color: var(--sand);
+  padding: 28px 40px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 2px solid var(--accent);
+}
+
+.header-title {
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.header-title h1 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--sand);
+}
+
+.header-title .kanji {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  color: var(--accent);
+  opacity: 0.9;
+}
+
+.header-actions {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  transition: all 0.2s;
+  letter-spacing: 0.02em;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid rgba(245,240,232,0.35);
+  color: var(--sand);
+}
+.btn-outline:hover { background: rgba(245,240,232,0.1); border-color: var(--accent); }
+
+.btn-accent {
+  background: var(--accent);
+  color: var(--ink);
+  font-weight: 600;
+}
+.btn-accent:hover { background: var(--oolong-light); }
+
+.btn-danger {
+  background: #c0392b;
+  color: white;
+}
+.btn-danger:hover { background: #a93226; }
+
+/* TOKEN BANNER */
+#token-banner {
+  background: linear-gradient(135deg, var(--tea-green), #3d6030);
+  color: white;
+  padding: 10px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 13px;
+  gap: 12px;
+}
+#token-banner.hidden { display: none; }
+#token-banner input {
+  flex: 1;
+  max-width: 340px;
+  padding: 6px 10px;
+  border: 1px solid rgba(255,255,255,0.4);
+  border-radius: 2px;
+  background: rgba(255,255,255,0.15);
+  color: white;
+  font-size: 13px;
+  outline: none;
+}
+#token-banner input::placeholder { color: rgba(255,255,255,0.6); }
+
+/* TABS */
+.tabs {
+  display: flex;
+  background: var(--ink);
+  padding: 0 40px;
+  gap: 2px;
+  border-bottom: 1px solid rgba(196,149,90,0.25);
+}
+
+.tab-btn {
+  padding: 12px 20px;
+  background: none;
+  border: none;
+  color: rgba(245,240,232,0.55);
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.tab-btn:hover { color: var(--sand); }
+.tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+/* MAIN */
+main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
+
+/* FILTERS BAR */
+.filters-bar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.filters-bar input[type="text"] {
+  padding: 8px 14px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: white;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 14px;
+  outline: none;
+  width: 240px;
+  transition: border-color 0.2s;
+}
+.filters-bar input:focus { border-color: var(--tea-green); }
+
+.filters-bar select {
+  padding: 8px 12px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: white;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 13px;
+  color: var(--ink);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M0 0l5 6 5-6z' fill='%233d3730'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 28px;
+}
+
+.count-badge {
+  margin-left: auto;
+  font-size: 13px;
+  color: var(--ink-light);
+  font-weight: 400;
+}
+
+/* ADD BUTTON */
+.btn-add {
+  background: var(--tea-green);
+  color: white;
+  padding: 8px 18px;
+  font-weight: 600;
+  font-size: 14px;
+}
+.btn-add:hover { background: var(--tea-green-light); }
+.btn-add.hidden { display: none; }
+
+/* TEA GRID */
+.tea-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* TEA CARD */
+.tea-card {
+  background: white;
+  border-radius: 4px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  transition: box-shadow 0.25s, transform 0.25s;
+  cursor: pointer;
+  position: relative;
+}
+.tea-card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-2px);
+}
+
+.tea-card-header {
+  height: 6px;
+}
+
+.tea-card-body { padding: 16px; }
+
+.tea-name {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.tea-meta {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-bottom: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.tea-type-badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 1px;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.tea-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.tea-price {
+  font-size: 12px;
+  color: var(--ink-light);
+  margin-top: 4px;
+}
+
+.tea-note {
+  font-size: 12px;
+  color: #6b635a;
+  margin-top: 8px;
+  line-height: 1.5;
+  font-style: italic;
+  border-top: 1px solid var(--border);
+  padding-top: 8px;
+}
+
+/* TYPE COLORS */
+.type-vert .tea-card-header { background: var(--tea-green); }
+.type-vert .tea-type-badge { background: #e8f0e0; color: var(--tea-green); }
+
+.type-noir .tea-card-header { background: var(--ink); }
+.type-noir .tea-type-badge { background: #e8e4df; color: var(--ink); }
+
+.type-oolong .tea-card-header { background: var(--oolong); }
+.type-oolong .tea-type-badge { background: #f5ead8; color: #9a6830; }
+
+.type-blanc .tea-card-header { background: #c8baa8; }
+.type-blanc .tea-type-badge { background: #f5f0e8; color: #8a7a6a; }
+
+.type-pu-erh .tea-card-header { background: var(--puerh); }
+.type-pu-erh .tea-type-badge { background: #f0e4df; color: var(--puerh); }
+
+.type-matcha .tea-card-header { background: var(--matcha); }
+.type-matcha .tea-type-badge { background: #eaf3e0; color: #5a8040; }
+
+.type-infusion .tea-card-header { background: #d4a0b0; }
+.type-infusion .tea-type-badge { background: #f5e8ec; color: #a06070; }
+
+.type-autre .tea-card-header { background: #a0a090; }
+.type-autre .tea-type-badge { background: #eeeee8; color: #606050; }
+
+/* STATUS */
+.status-en-stock { color: var(--tea-green); }
+.status-epuise { color: #c0392b; }
+.status-a-racheter { color: var(--oolong); }
+
+/* EMPTY STATE */
+.empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--ink-light);
+}
+.empty-state .icon { font-size: 3rem; margin-bottom: 16px; }
+.empty-state p { font-size: 1rem; }
+
+/* MODAL */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(26,22,17,0.6);
+  z-index: 200;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.open { display: flex; }
+
+.modal {
+  background: var(--sand);
+  border-radius: 4px;
+  width: 100%;
+  max-width: 540px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-top: 4px solid var(--accent);
+  box-shadow: 0 20px 60px rgba(26,22,17,0.3);
+}
+
+.modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px;
+  border-bottom: 1px solid var(--border);
+}
+
+.modal-header h2 {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  color: var(--ink-light);
+  padding: 4px;
+  line-height: 1;
+}
+.modal-close:hover { color: var(--ink); }
+
+.modal-body { padding: 20px 24px; }
+
+.form-group {
+  margin-bottom: 16px;
+}
+.form-group label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-light);
+  margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 9px 12px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: white;
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus { border-color: var(--tea-green); }
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 72px;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.modal-footer {
+  padding: 16px 24px;
+  border-top: 1px solid var(--border);
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.readonly-note {
+  font-size: 12px;
+  color: var(--ink-light);
+  font-style: italic;
+  margin-top: 8px;
+}
+
+/* STATS TAB */
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 32px;
+}
+
+.stat-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 20px;
+  text-align: center;
+}
+
+.stat-value {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: var(--ink);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+.stat-label {
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-light);
+}
+
+.stat-card.accent .stat-value { color: var(--tea-green); }
+.stat-card.orange .stat-value { color: var(--oolong); }
+.stat-card.red .stat-value { color: #c0392b; }
+
+.section-title {
+  font-family: 'Shippori Mincho', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.bar-chart { margin-bottom: 32px; }
+
+.bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.bar-label {
+  width: 100px;
+  font-size: 13px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.bar-track {
+  flex: 1;
+  height: 20px;
+  background: var(--sand-dark);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.bar-fill {
+  height: 100%;
+  border-radius: 2px;
+  transition: width 0.5s ease;
+}
+.bar-count {
+  width: 32px;
+  font-size: 12px;
+  color: var(--ink-light);
+  font-weight: 500;
+}
+
+/* FOURNISSEURS TABLE */
+.fournisseur-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.fournisseur-table th {
+  text-align: left;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-light);
+  padding: 8px 12px;
+  border-bottom: 2px solid var(--border);
+}
+.fournisseur-table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--border);
+}
+
+/* PAGINATION / no results */
+.no-results {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--ink-light);
+  font-style: italic;
+}
+
+/* CSV MODAL */
+.csv-area {
+  width: 100%;
+  height: 180px;
+  font-family: monospace;
+  font-size: 12px;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  resize: vertical;
+}
+
+/* TOAST */
+.toast {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  background: var(--ink);
+  color: var(--sand);
+  padding: 12px 20px;
+  border-radius: 2px;
+  font-size: 13px;
+  z-index: 999;
+  border-left: 4px solid var(--accent);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+.toast.show { opacity: 1; transform: translateY(0); }
+
+/* SAVING indicator */
+#saving-indicator {
+  font-size: 12px;
+  color: rgba(245,240,232,0.6);
+  display: none;
+  align-items: center;
+  gap: 6px;
+}
+#saving-indicator.visible { display: flex; }
+
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner {
+  width: 12px; height: 12px;
+  border: 2px solid rgba(245,240,232,0.3);
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  header { padding: 16px 20px; }
+  main { padding: 20px; }
+  .tabs { padding: 0 20px; }
+  #token-banner { padding: 10px 20px; }
+  .form-row { grid-template-columns: 1fr; }
+  .filters-bar { gap: 8px; }
+  .filters-bar input[type="text"] { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-title">
+    <h1>☕ Ma Collection de Thés</h1>
+    <span class="kanji">茶</span>
+  </div>
+  <div class="header-actions">
+    <div id="saving-indicator"><div class="spinner"></div> Sauvegarde…</div>
+    <button class="btn btn-outline" onclick="openExportModal()">↓ Exporter CSV</button>
+    <button class="btn btn-outline" onclick="openImportModal()">↑ Importer CSV</button>
+    <button id="btn-token-toggle" class="btn btn-outline" onclick="toggleTokenBanner()">🔑 Token</button>
+  </div>
+</header>
+
+<div id="token-banner" class="hidden">
+  <span>Token GitHub (stocké dans votre navigateur) :</span>
+  <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
+  <button class="btn btn-accent" onclick="saveToken()">Enregistrer</button>
+  <button class="btn btn-outline" onclick="clearToken()">Effacer</button>
+  <span id="token-status"></span>
+</div>
+
+<nav class="tabs">
+  <button class="tab-btn active" onclick="switchTab('collection')" id="tab-collection">Collection</button>
+  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">À racheter</button>
+  <button class="tab-btn" onclick="switchTab('stats')" id="tab-stats">Statistiques</button>
+</nav>
+
+<main>
+  <!-- TAB COLLECTION -->
+  <div id="view-collection">
+    <div class="filters-bar">
+      <input type="text" id="search" placeholder="Rechercher un thé…" oninput="renderCollection()" />
+      <select id="filter-type" onchange="renderCollection()">
+        <option value="">Tous les types</option>
+        <option value="vert">Vert</option>
+        <option value="noir">Noir</option>
+        <option value="oolong">Oolong</option>
+        <option value="blanc">Blanc</option>
+        <option value="pu-erh">Pu-erh</option>
+        <option value="matcha">Matcha</option>
+        <option value="infusion">Infusion</option>
+        <option value="autre">Autre</option>
+      </select>
+      <select id="filter-statut" onchange="renderCollection()">
+        <option value="">Tous les statuts</option>
+        <option value="en-stock">En stock</option>
+        <option value="epuise">Épuisé</option>
+        <option value="a-racheter">À racheter</option>
+      </select>
+      <select id="filter-origine" onchange="renderCollection()">
+        <option value="">Toutes origines</option>
+      </select>
+      <span class="count-badge" id="count-badge"></span>
+      <button class="btn btn-add" id="btn-add" onclick="openAddModal()">+ Ajouter</button>
+    </div>
+    <div class="tea-grid" id="tea-grid"></div>
+  </div>
+
+  <!-- TAB À RACHETER -->
+  <div id="view-racheter" style="display:none">
+    <div class="filters-bar">
+      <span class="count-badge" id="racheter-badge"></span>
+    </div>
+    <div class="tea-grid" id="racheter-grid"></div>
+  </div>
+
+  <!-- TAB STATS -->
+  <div id="view-stats" style="display:none">
+    <div class="stats-grid" id="stats-cards"></div>
+    <div class="bar-chart">
+      <div class="section-title">🍵 Répartition par type</div>
+      <div id="chart-type"></div>
+    </div>
+    <div class="bar-chart">
+      <div class="section-title">🌍 Origines</div>
+      <div id="chart-origine"></div>
+    </div>
+    <div>
+      <div class="section-title">🏪 Fournisseurs</div>
+      <table class="fournisseur-table" id="table-fournisseurs">
+        <thead><tr><th>Fournisseur</th><th>Thés</th><th>Valeur estimée</th></tr></thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+</main>
+
+<!-- MODAL THÉE -->
+<div class="modal-overlay" id="modal-tea">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modal-title">Nouveau thé</h2>
+      <button class="modal-close" onclick="closeModal('modal-tea')">✕</button>
+    </div>
+    <div class="modal-body">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nom *</label>
+          <input type="text" id="f-nom" placeholder="Ex: Gyokuro Premier Flush" />
+        </div>
+        <div class="form-group">
+          <label>Type *</label>
+          <select id="f-type">
+            <option value="vert">Vert</option>
+            <option value="noir">Noir</option>
+            <option value="oolong">Oolong</option>
+            <option value="blanc">Blanc</option>
+            <option value="pu-erh">Pu-erh</option>
+            <option value="matcha">Matcha</option>
+            <option value="infusion">Infusion</option>
+            <option value="autre">Autre</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Origine (pays/région)</label>
+          <input type="text" id="f-origine" placeholder="Ex: Uji, Japon" />
+        </div>
+        <div class="form-group">
+          <label>Statut</label>
+          <select id="f-statut">
+            <option value="en-stock">En stock</option>
+            <option value="epuise">Épuisé</option>
+            <option value="a-racheter">À racheter</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Fournisseur</label>
+          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des Thés" />
+        </div>
+        <div class="form-group">
+          <label>Prix d'achat (€)</label>
+          <input type="number" id="f-prix" placeholder="0.00" min="0" step="0.01" />
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Note personnelle</label>
+        <textarea id="f-note" placeholder="Arômes, conseils d'infusion, anecdotes…"></textarea>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-danger" id="btn-delete-tea" onclick="deleteTea()" style="display:none;margin-right:auto">Supprimer</button>
+      <button class="btn btn-outline" onclick="closeModal('modal-tea')">Annuler</button>
+      <button class="btn btn-accent" onclick="saveTea()">Enregistrer</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL EXPORT CSV -->
+<div class="modal-overlay" id="modal-export">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Exporter CSV</h2>
+      <button class="modal-close" onclick="closeModal('modal-export')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;margin-bottom:12px;color:var(--ink-light)">Copiez ou téléchargez ce fichier CSV.</p>
+      <textarea class="csv-area" id="csv-output" readonly></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-export')">Fermer</button>
+      <button class="btn btn-accent" onclick="downloadCSV()">↓ Télécharger</button>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL IMPORT CSV -->
+<div class="modal-overlay" id="modal-import">
+  <div class="modal">
+    <div class="modal-header">
+      <h2>Importer CSV</h2>
+      <button class="modal-close" onclick="closeModal('modal-import')">✕</button>
+    </div>
+    <div class="modal-body">
+      <p style="font-size:13px;margin-bottom:12px;color:var(--ink-light)">Collez votre CSV (format : nom,type,origine,statut,fournisseur,prix,note). La première ligne doit être l'en-tête.</p>
+      <textarea class="csv-area" id="csv-input" placeholder="nom,type,origine,statut,fournisseur,prix,note&#10;Gyokuro,vert,Uji Japon,en-stock,Palais des Thés,12.50,Très floral"></textarea>
+      <p style="font-size:12px;margin-top:8px;color:#c0392b">⚠ L'import remplacera toute la collection existante.</p>
+    </div>
+    <div class="modal-footer">
+      <button class="btn btn-outline" onclick="closeModal('modal-import')">Annuler</button>
+      <button class="btn btn-accent" onclick="importCSV()">Importer</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+// ─── CONFIG GITHUB ───────────────────────────────────────────────────────────
+const GITHUB_OWNER = 'gargouille88';
+const GITHUB_REPO  = 'thes';           // ← à adapter si besoin
+const GITHUB_FILE  = 'index.html';
+const GITHUB_BRANCH = 'main';
+
+// ─── STATE ───────────────────────────────────────────────────────────────────
+let TEAS = [];
+let editingId = null;
+let currentTab = 'collection';
+
+const TYPE_COLORS = {
+  'vert':     '#5a7a4a',
+  'noir':     '#1a1611',
+  'oolong':   '#c4955a',
+  'blanc':    '#c8baa8',
+  'pu-erh':   '#7a4a3a',
+  'matcha':   '#8aab6f',
+  'infusion': '#d4a0b0',
+  'autre':    '#a0a090',
+};
+
+const STATUS_ICONS = {
+  'en-stock':   { icon: '✓', label: 'En stock',    cls: 'status-en-stock' },
+  'epuise':     { icon: '✗', label: 'Épuisé',       cls: 'status-epuise' },
+  'a-racheter': { icon: '↻', label: 'À racheter',  cls: 'status-a-racheter' },
+};
+
+// ─── INIT ─────────────────────────────────────────────────────────────────────
+function init() {
+  loadLocal();
+  renderAll();
+  updateTokenStatus();
+  populateOrigineFilter();
+}
+
+// ─── STORAGE ─────────────────────────────────────────────────────────────────
+function loadLocal() {
+  try {
+    const raw = localStorage.getItem('teas_data');
+    if (raw) TEAS = JSON.parse(raw);
+  } catch(e) {}
+}
+
+function saveLocal() {
+  localStorage.setItem('teas_data', JSON.stringify(TEAS));
+}
+
+function getToken() {
+  return localStorage.getItem('gh_token') || '';
+}
+
+// ─── TOKEN UI ─────────────────────────────────────────────────────────────────
+function toggleTokenBanner() {
+  const b = document.getElementById('token-banner');
+  b.classList.toggle('hidden');
+  if (!b.classList.contains('hidden')) {
+    document.getElementById('token-input').value = getToken();
+  }
+}
+
+function saveToken() {
+  const v = document.getElementById('token-input').value.trim();
+  if (v) {
+    localStorage.setItem('gh_token', v);
+    showToast('Token enregistré ✓');
+    updateTokenStatus();
+  }
+}
+
+function clearToken() {
+  localStorage.removeItem('gh_token');
+  document.getElementById('token-input').value = '';
+  updateTokenStatus();
+  showToast('Token effacé');
+}
+
+function updateTokenStatus() {
+  const t = getToken();
+  const el = document.getElementById('token-status');
+  const addBtn = document.getElementById('btn-add');
+  if (t) {
+    el.textContent = '✓ Token présent';
+    el.style.color = '#90d070';
+    if (addBtn) addBtn.classList.remove('hidden');
+  } else {
+    el.textContent = '⚠ Lecture seule';
+    el.style.color = '#f0c060';
+    if (addBtn) addBtn.classList.add('hidden');
+  }
+}
+
+// ─── TABS ─────────────────────────────────────────────────────────────────────
+function switchTab(tab) {
+  currentTab = tab;
+  ['collection','racheter','stats'].forEach(t => {
+    document.getElementById('view-'+t).style.display = t === tab ? '' : 'none';
+    document.getElementById('tab-'+t).classList.toggle('active', t === tab);
+  });
+  if (tab === 'stats') renderStats();
+  if (tab === 'racheter') renderRacheter();
+}
+
+// ─── RENDER ───────────────────────────────────────────────────────────────────
+function renderAll() {
+  renderCollection();
+  populateOrigineFilter();
+}
+
+function filteredTeas() {
+  const q = document.getElementById('search').value.toLowerCase();
+  const type = document.getElementById('filter-type').value;
+  const statut = document.getElementById('filter-statut').value;
+  const origine = document.getElementById('filter-origine').value;
+
+  return TEAS.filter(t => {
+    if (q && !t.nom.toLowerCase().includes(q) && !(t.origine||'').toLowerCase().includes(q) && !(t.fournisseur||'').toLowerCase().includes(q)) return false;
+    if (type && t.type !== type) return false;
+    if (statut && t.statut !== statut) return false;
+    if (origine && (t.origine||'') !== origine) return false;
+    return true;
+  });
+}
+
+function renderCollection() {
+  const grid = document.getElementById('tea-grid');
+  const teas = filteredTeas();
+  document.getElementById('count-badge').textContent = teas.length + ' thé' + (teas.length !== 1 ? 's' : '');
+
+  if (!teas.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="icon">🍵</div><p>${TEAS.length ? 'Aucun thé ne correspond aux filtres.' : 'Votre collection est vide.<br>Ajoutez votre premier thé !'}</p></div>`;
+    return;
+  }
+  grid.innerHTML = teas.map(teaCard).join('');
+}
+
+function teaCard(t) {
+  const s = STATUS_ICONS[t.statut] || STATUS_ICONS['en-stock'];
+  const prix = t.prix ? `<div class="tea-price">💰 ${parseFloat(t.prix).toFixed(2)} €${t.fournisseur ? ' · ' + t.fournisseur : ''}</div>` : (t.fournisseur ? `<div class="tea-price">🏪 ${t.fournisseur}</div>` : '');
+  const note = t.note ? `<div class="tea-note">${t.note}</div>` : '';
+  return `
+  <div class="tea-card type-${t.type}" onclick="openEditModal('${t.id}')">
+    <div class="tea-card-header"></div>
+    <div class="tea-card-body">
+      <div class="tea-name">${t.nom}</div>
+      <div class="tea-meta">
+        <span class="tea-type-badge">${t.type}</span>
+        ${t.origine ? `<span>📍 ${t.origine}</span>` : ''}
+      </div>
+      <div class="tea-status ${s.cls}">${s.icon} ${s.label}</div>
+      ${prix}
+      ${note}
+    </div>
+  </div>`;
+}
+
+function renderRacheter() {
+  const grid = document.getElementById('racheter-grid');
+  const teas = TEAS.filter(t => t.statut === 'a-racheter');
+  document.getElementById('racheter-badge').textContent = teas.length + ' thé' + (teas.length !== 1 ? 's' : '') + ' à racheter';
+  if (!teas.length) {
+    grid.innerHTML = `<div class="empty-state"><div class="icon">✓</div><p>Aucun thé à racheter pour l'instant !</p></div>`;
+    return;
+  }
+  grid.innerHTML = teas.map(teaCard).join('');
+}
+
+function populateOrigineFilter() {
+  const sel = document.getElementById('filter-origine');
+  const current = sel.value;
+  const origines = [...new Set(TEAS.map(t => t.origine).filter(Boolean))].sort();
+  sel.innerHTML = '<option value="">Toutes origines</option>' + origines.map(o => `<option value="${o}">${o}</option>`).join('');
+  sel.value = current;
+}
+
+// ─── STATS ────────────────────────────────────────────────────────────────────
+function renderStats() {
+  const total = TEAS.length;
+  const enStock = TEAS.filter(t => t.statut === 'en-stock').length;
+  const epuises = TEAS.filter(t => t.statut === 'epuise').length;
+  const aRacheter = TEAS.filter(t => t.statut === 'a-racheter').length;
+  const valeur = TEAS.filter(t => t.prix).reduce((s,t) => s + parseFloat(t.prix), 0);
+
+  document.getElementById('stats-cards').innerHTML = `
+    <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">Thés au total</div></div>
+    <div class="stat-card accent"><div class="stat-value">${enStock}</div><div class="stat-label">En stock</div></div>
+    <div class="stat-card orange"><div class="stat-value">${aRacheter}</div><div class="stat-label">À racheter</div></div>
+    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">Épuisés</div></div>
+    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}€</div><div class="stat-label">Valeur estimée</div></div>
+  `;
+
+  // Par type
+  const byType = {};
+  TEAS.forEach(t => byType[t.type] = (byType[t.type]||0)+1);
+  const maxType = Math.max(...Object.values(byType), 1);
+  document.getElementById('chart-type').innerHTML = Object.entries(byType)
+    .sort((a,b) => b[1]-a[1])
+    .map(([type, cnt]) => `
+    <div class="bar-row">
+      <div class="bar-label">${type}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${cnt/maxType*100}%;background:${TYPE_COLORS[type]||'#888'}"></div></div>
+      <div class="bar-count">${cnt}</div>
+    </div>`).join('');
+
+  // Par origine
+  const byOrig = {};
+  TEAS.forEach(t => { if(t.origine) byOrig[t.origine] = (byOrig[t.origine]||0)+1; });
+  const maxOrig = Math.max(...Object.values(byOrig), 1);
+  document.getElementById('chart-origine').innerHTML = Object.entries(byOrig)
+    .sort((a,b) => b[1]-a[1])
+    .map(([o, cnt]) => `
+    <div class="bar-row">
+      <div class="bar-label">${o}</div>
+      <div class="bar-track"><div class="bar-fill" style="width:${cnt/maxOrig*100}%;background:var(--tea-green)"></div></div>
+      <div class="bar-count">${cnt}</div>
+    </div>`).join('') || '<p style="color:var(--ink-light);font-size:13px">Aucune origine renseignée.</p>';
+
+  // Fournisseurs
+  const byFourn = {};
+  TEAS.forEach(t => {
+    if (!t.fournisseur) return;
+    if (!byFourn[t.fournisseur]) byFourn[t.fournisseur] = { count: 0, valeur: 0 };
+    byFourn[t.fournisseur].count++;
+    if (t.prix) byFourn[t.fournisseur].valeur += parseFloat(t.prix);
+  });
+  const tbody = document.querySelector('#table-fournisseurs tbody');
+  tbody.innerHTML = Object.entries(byFourn).sort((a,b) => b[1].count-a[1].count)
+    .map(([f, d]) => `<tr><td>${f}</td><td>${d.count}</td><td>${d.valeur > 0 ? d.valeur.toFixed(2)+' €' : '—'}</td></tr>`)
+    .join('') || '<tr><td colspan="3" style="color:var(--ink-light);font-style:italic">Aucun fournisseur renseigné.</td></tr>';
+}
+
+// ─── MODAL THÉE ───────────────────────────────────────────────────────────────
+function openAddModal() {
+  editingId = null;
+  document.getElementById('modal-title').textContent = 'Nouveau thé';
+  ['nom','origine','fournisseur','note'].forEach(f => document.getElementById('f-'+f).value = '');
+  document.getElementById('f-prix').value = '';
+  document.getElementById('f-type').value = 'vert';
+  document.getElementById('f-statut').value = 'en-stock';
+  document.getElementById('btn-delete-tea').style.display = 'none';
+  openModal('modal-tea');
+}
+
+function openEditModal(id) {
+  const t = TEAS.find(x => x.id === id);
+  if (!t) return;
+  editingId = id;
+  document.getElementById('modal-title').textContent = t.nom;
+  document.getElementById('f-nom').value = t.nom || '';
+  document.getElementById('f-type').value = t.type || 'vert';
+  document.getElementById('f-origine').value = t.origine || '';
+  document.getElementById('f-statut').value = t.statut || 'en-stock';
+  document.getElementById('f-fournisseur').value = t.fournisseur || '';
+  document.getElementById('f-prix').value = t.prix || '';
+  document.getElementById('f-note').value = t.note || '';
+
+  const isRO = !getToken();
+  ['nom','type','origine','statut','fournisseur','prix','note'].forEach(f => {
+    const el = document.getElementById('f-'+f);
+    el.disabled = isRO;
+  });
+
+  document.getElementById('btn-delete-tea').style.display = getToken() ? 'inline-block' : 'none';
+  openModal('modal-tea');
+}
+
+function saveTea() {
+  const nom = document.getElementById('f-nom').value.trim();
+  if (!nom) { showToast('Le nom est obligatoire.'); return; }
+  const tea = {
+    id: editingId || Date.now().toString(36) + Math.random().toString(36).slice(2),
+    nom,
+    type: document.getElementById('f-type').value,
+    origine: document.getElementById('f-origine').value.trim(),
+    statut: document.getElementById('f-statut').value,
+    fournisseur: document.getElementById('f-fournisseur').value.trim(),
+    prix: document.getElementById('f-prix').value || '',
+    note: document.getElementById('f-note').value.trim(),
+  };
+  if (editingId) {
+    const idx = TEAS.findIndex(x => x.id === editingId);
+    if (idx >= 0) TEAS[idx] = tea;
+  } else {
+    TEAS.push(tea);
+  }
+  closeModal('modal-tea');
+  saveLocal();
+  renderAll();
+  pushToGitHub();
+}
+
+function deleteTea() {
+  if (!editingId) return;
+  if (!confirm('Supprimer ce thé ?')) return;
+  TEAS = TEAS.filter(t => t.id !== editingId);
+  closeModal('modal-tea');
+  saveLocal();
+  renderAll();
+  pushToGitHub();
+}
+
+// ─── CSV ──────────────────────────────────────────────────────────────────────
+function teasToCSV() {
+  const headers = ['nom','type','origine','statut','fournisseur','prix','note'];
+  const rows = TEAS.map(t => headers.map(h => `"${(t[h]||'').replace(/"/g,'""')}"`).join(','));
+  return [headers.join(','), ...rows].join('\n');
+}
+
+function openExportModal() {
+  document.getElementById('csv-output').value = teasToCSV();
+  openModal('modal-export');
+}
+
+function downloadCSV() {
+  const blob = new Blob([teasToCSV()], { type: 'text/csv;charset=utf-8;' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'ma-collection-thes.csv';
+  a.click();
+}
+
+function openImportModal() {
+  document.getElementById('csv-input').value = '';
+  openModal('modal-import');
+}
+
+function importCSV() {
+  const raw = document.getElementById('csv-input').value.trim();
+  if (!raw) return;
+  const lines = raw.split('\n').map(l => l.trim()).filter(Boolean);
+  if (lines.length < 2) { showToast('CSV invalide.'); return; }
+  const headers = lines[0].split(',').map(h => h.replace(/"/g,'').trim().toLowerCase());
+  const idx = h => headers.indexOf(h);
+  const parse = cell => cell.replace(/^"|"$/g,'').replace(/""/g,'"').trim();
+  const newTeas = [];
+  for (let i = 1; i < lines.length; i++) {
+    const cells = lines[i].match(/("(?:[^"]|"")*"|[^,]*)/g) || [];
+    const nom = parse(cells[idx('nom')]||'');
+    if (!nom) continue;
+    newTeas.push({
+      id: Date.now().toString(36) + i + Math.random().toString(36).slice(2),
+      nom, type: parse(cells[idx('type')]||'') || 'autre',
+      origine: parse(cells[idx('origine')]||''),
+      statut: parse(cells[idx('statut')]||'') || 'en-stock',
+      fournisseur: parse(cells[idx('fournisseur')]||''),
+      prix: parse(cells[idx('prix')]||''),
+      note: parse(cells[idx('note')]||''),
+    });
+  }
+  TEAS = newTeas;
+  saveLocal();
+  renderAll();
+  closeModal('modal-import');
+  pushToGitHub();
+  showToast(`${newTeas.length} thés importés ✓`);
+}
+
+// ─── GITHUB PUSH ──────────────────────────────────────────────────────────────
+async function pushToGitHub() {
+  const token = getToken();
+  if (!token) return;
+
+  setSaving(true);
+  try {
+    // 1. Récupérer le SHA actuel
+    const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`, {
+      headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
+    });
+    const fileData = await res.json();
+    const sha = fileData.sha;
+
+    // 2. Lire le HTML actuel et mettre à jour le bloc TEAS
+    let html = atob(fileData.content.replace(/\n/g,''));
+    const marker = '/* __TEAS_DATA__ */';
+    const newBlock = `/* __TEAS_DATA__ */\nconst TEAS_INIT = ${JSON.stringify(TEAS)};`;
+    if (html.includes(marker)) {
+      html = html.replace(/\/\* __TEAS_DATA__ \*\/[\s\S]*?;/, newBlock);
+    } else {
+      // Fallback : injecter juste avant </script> de fermeture du bloc init
+      html = html.replace('function init() {', newBlock + '\n\nfunction init() {');
+    }
+
+    // 3. Pusher
+    const content = btoa(unescape(encodeURIComponent(html)));
+    await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
+      method: 'PUT',
+      headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: 'update: collection de thés', content, sha, branch: GITHUB_BRANCH })
+    });
+    showToast('Sauvegardé sur GitHub ✓');
+  } catch(e) {
+    console.error(e);
+    showToast('Erreur GitHub – données sauvegardées en local');
+  } finally {
+    setSaving(false);
+  }
+}
+
+function setSaving(v) {
+  document.getElementById('saving-indicator').classList.toggle('visible', v);
+}
+
+// ─── MODALS ───────────────────────────────────────────────────────────────────
+function openModal(id) { document.getElementById(id).classList.add('open'); }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); }
+
+document.querySelectorAll('.modal-overlay').forEach(m => {
+  m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
+});
+
+// ─── TOAST ────────────────────────────────────────────────────────────────────
+let toastTimer;
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
+}
+
+// ─── PERSISTENT DATA (injecté par GitHub push) ───────────────────────────────
+/* __TEAS_DATA__ */
+const TEAS_INIT = [];
+
+// ─── START ────────────────────────────────────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  // Si localStorage vide, utiliser les données du fichier
+  if (!localStorage.getItem('teas_data') && TEAS_INIT.length) {
+    TEAS = TEAS_INIT;
+    saveLocal();
+  }
+  init();
+});
+</script>
+</body>
+</html>
