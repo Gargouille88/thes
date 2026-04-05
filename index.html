@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ma Collection de Thés</title>
+<title>Ma Collection de ThÃ©s</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -163,14 +163,14 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 
 <header>
   <div class="header-title">
-    <h1>☕ Ma Collection de Thés</h1>
-    <span class="kanji">茶</span>
+    <h1>â Ma Collection de ThÃ©s</h1>
+    <span class="kanji">è¶</span>
   </div>
   <div class="header-actions">
-    <div id="saving-indicator"><div class="spinner"></div> Sauvegarde…</div>
-    <button class="btn btn-outline" onclick="openExportModal()">↓ CSV</button>
-    <button class="btn btn-outline" onclick="openImportModal()">↑ CSV</button>
-    <button class="btn btn-outline" onclick="toggleTokenBanner()">🔑 Token</button>
+    <div id="saving-indicator"><div class="spinner"></div> Sauvegardeâ¦</div>
+    <button class="btn btn-outline" onclick="openExportModal()">â CSV</button>
+    <button class="btn btn-outline" onclick="openImportModal()">â CSV</button>
+    <button class="btn btn-outline" onclick="toggleTokenBanner()">ð Token</button>
   </div>
 </header>
 
@@ -184,14 +184,14 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 
 <nav class="tabs">
   <button class="tab-btn active" onclick="switchTab('collection')" id="tab-collection">Collection</button>
-  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">À racheter</button>
+  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">Ã racheter</button>
   <button class="tab-btn" onclick="switchTab('stats')" id="tab-stats">Statistiques</button>
 </nav>
 
 <main>
   <div id="view-collection">
     <div class="filters-bar">
-      <input type="text" id="search" placeholder="Rechercher…" oninput="renderCollection()" />
+      <input type="text" id="search" placeholder="Rechercherâ¦" oninput="renderCollection()" />
       <select id="filter-type" onchange="renderCollection()">
         <option value="">Tous types</option>
         <option value="vert">Vert</option><option value="noir">Noir</option>
@@ -202,8 +202,8 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
       <select id="filter-statut" onchange="renderCollection()">
         <option value="">Tous statuts</option>
         <option value="en-stock">En stock</option>
-        <option value="epuise">Épuisé</option>
-        <option value="a-racheter">À racheter</option>
+        <option value="epuise">ÃpuisÃ©</option>
+        <option value="a-racheter">Ã racheter</option>
       </select>
       <select id="filter-origine" onchange="renderCollection()">
         <option value="">Toutes origines</option>
@@ -214,20 +214,20 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
     <div class="tea-table-wrap">
       <table class="tea-table">
         <thead><tr>
-          <th onclick="sortBy('nom')" id="th-nom">Nom ↕</th>
-          <th onclick="sortBy('type')" id="th-type">Type ↕</th>
-          <th>🌿</th>
-          <th onclick="sortBy('statut')" id="th-statut">Statut ↕</th>
-          <th onclick="sortBy('note')" id="th-note">Note ↕</th>
-          <th onclick="sortBy('prix')" id="th-prix">Prix ↕</th>
-          <th onclick="sortBy('origine')" id="th-origine">Origine ↕</th>
+          <th onclick="sortBy('nom')" id="th-nom">Nom â</th>
+          <th onclick="sortBy('type')" id="th-type">Type â</th>
+          <th>ð¿</th>
+          <th onclick="sortBy('statut')" id="th-statut">Statut â</th>
+          <th onclick="sortBy('note')" id="th-note">Note â</th>
+          <th onclick="sortBy('prix')" id="th-prix">Prix â</th>
+          <th onclick="sortBy('origine')" id="th-origine">Origine â</th>
           <th>Fournisseur</th>
           <th>Commentaire</th>
         </tr></thead>
         <tbody id="tea-tbody"></tbody>
       </table>
       <div id="tea-empty" class="empty-state" style="display:none">
-        <div class="icon">🍵</div><p id="tea-empty-msg">Votre collection est vide.</p>
+        <div class="icon">ðµ</div><p id="tea-empty-msg">Votre collection est vide.</p>
       </div>
     </div>
   </div>
@@ -237,35 +237,35 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
     <div class="tea-table-wrap">
       <table class="tea-table">
         <thead><tr>
-          <th>Nom</th><th>Type</th><th>🌿</th><th>Statut</th><th>Note</th><th>Prix</th><th>Origine</th><th>Fournisseur</th><th>Commentaire</th>
+          <th>Nom</th><th>Type</th><th>ð¿</th><th>Statut</th><th>Note</th><th>Prix</th><th>Origine</th><th>Fournisseur</th><th>Commentaire</th>
         </tr></thead>
         <tbody id="racheter-tbody"></tbody>
       </table>
       <div id="racheter-empty" class="empty-state" style="display:none">
-        <div class="icon">✓</div><p>Aucun thé à racheter !</p>
+        <div class="icon">â</div><p>Aucun thÃ© Ã  racheter !</p>
       </div>
     </div>
   </div>
 
   <div id="view-stats" style="display:none">
     <div class="stats-grid" id="stats-cards"></div>
-    <div class="bar-chart"><div class="section-title">🍵 Par type</div><div id="chart-type"></div></div>
-    <div class="bar-chart"><div class="section-title">🌍 Par origine</div><div id="chart-origine"></div></div>
-    <div><div class="section-title">🏪 Fournisseurs</div>
+    <div class="bar-chart"><div class="section-title">ðµ Par type</div><div id="chart-type"></div></div>
+    <div class="bar-chart"><div class="section-title">ð Par origine</div><div id="chart-origine"></div></div>
+    <div><div class="section-title">ðª Fournisseurs</div>
       <table class="fournisseur-table" id="table-fournisseurs">
-        <thead><tr><th>Fournisseur</th><th>Thés</th><th>Note moy.</th><th>Valeur</th></tr></thead>
+        <thead><tr><th>Fournisseur</th><th>ThÃ©s</th><th>Note moy.</th><th>Valeur</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
   </div>
 </main>
 
-<!-- MODAL THÉ -->
+<!-- MODAL THÃ -->
 <div class="modal-overlay" id="modal-tea">
   <div class="modal">
     <div class="modal-header">
-      <h2 id="modal-title">Nouveau thé</h2>
-      <button class="modal-close" onclick="closeModal('modal-tea')">✕</button>
+      <h2 id="modal-title">Nouveau thÃ©</h2>
+      <button class="modal-close" onclick="closeModal('modal-tea')">â</button>
     </div>
     <div class="modal-body">
       <div class="form-row">
@@ -285,41 +285,41 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
       </div>
 
       <div class="form-group">
-        <label>Origine — saisir manuellement ou choisir dans la liste</label>
+        <label>Origine â saisir manuellement ou choisir dans la liste</label>
         <div class="origine-wrap">
           <input type="text" id="f-origine" placeholder="Ex: Uji, Japon" />
           <select id="f-origine-sel" onchange="applyOrigSel()">
-            <option value="">— Suggestions —</option>
-            <optgroup label="🇯🇵 Japon">
+            <option value="">â Suggestions â</option>
+            <optgroup label="ð¯ðµ Japon">
               <option>Uji, Japon</option><option>Shizuoka, Japon</option>
               <option>Kagoshima, Japon</option><option>Kyoto, Japon</option>
               <option>Nishio, Japon</option><option>Yame, Japon</option>
               <option>Wazuka, Japon</option>
             </optgroup>
-            <optgroup label="🇨🇳 Chine">
+            <optgroup label="ð¨ð³ Chine">
               <option>Yunnan, Chine</option><option>Fujian, Chine</option>
               <option>Zhejiang, Chine</option><option>Anhui, Chine</option>
               <option>Sichuan, Chine</option><option>Guangdong, Chine</option>
               <option>Hunan, Chine</option><option>Wuyi, Chine</option>
               <option>Anxi, Chine</option><option>Yunnan Pu-erh, Chine</option>
             </optgroup>
-            <optgroup label="🇹🇼 Taïwan">
-              <option>Alishan, Taïwan</option><option>Li Shan, Taïwan</option>
-              <option>Dong Ding, Taïwan</option><option>Nantou, Taïwan</option>
-              <option>Sun Moon Lake, Taïwan</option>
+            <optgroup label="ð¹ð¼ TaÃ¯wan">
+              <option>Alishan, TaÃ¯wan</option><option>Li Shan, TaÃ¯wan</option>
+              <option>Dong Ding, TaÃ¯wan</option><option>Nantou, TaÃ¯wan</option>
+              <option>Sun Moon Lake, TaÃ¯wan</option>
             </optgroup>
-            <optgroup label="🇮🇳 Inde">
+            <optgroup label="ð®ð³ Inde">
               <option>Darjeeling, Inde</option><option>Assam, Inde</option>
               <option>Nilgiri, Inde</option><option>Sikkim, Inde</option>
             </optgroup>
-            <optgroup label="🇱🇰 Sri Lanka">
+            <optgroup label="ð±ð° Sri Lanka">
               <option>Nuwara Eliya, Sri Lanka</option><option>Kandy, Sri Lanka</option>
               <option>Uva, Sri Lanka</option><option>Dimbula, Sri Lanka</option>
             </optgroup>
-            <optgroup label="🌍 Afrique &amp; Autres">
+            <optgroup label="ð Afrique &amp; Autres">
               <option>Kenya</option><option>Rwanda</option><option>Cameroun</option>
-              <option>Népal</option><option>Vietnam</option><option>Thaïlande</option>
-              <option>Géorgie</option><option>Turquie</option>
+              <option>NÃ©pal</option><option>Vietnam</option><option>ThaÃ¯lande</option>
+              <option>GÃ©orgie</option><option>Turquie</option>
             </optgroup>
           </select>
         </div>
@@ -329,29 +329,29 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
         <div class="form-group">
           <label>Statut</label>
           <div class="statut-btns" style="margin-top:2px" id="modal-statut-btns">
-            <button type="button" class="statut-btn s-en-stock" onclick="setModalStatut('en-stock')" id="ms-en-stock">✓ En stock</button>
-            <button type="button" class="statut-btn s-a-racheter inactive" onclick="setModalStatut('a-racheter')" id="ms-a-racheter">↻ À racheter</button>
-            <button type="button" class="statut-btn s-epuise inactive" onclick="setModalStatut('epuise')" id="ms-epuise">✗ Épuisé</button>
+            <button type="button" class="statut-btn s-en-stock" onclick="setModalStatut('en-stock')" id="ms-en-stock">â En stock</button>
+            <button type="button" class="statut-btn s-a-racheter inactive" onclick="setModalStatut('a-racheter')" id="ms-a-racheter">â» Ã racheter</button>
+            <button type="button" class="statut-btn s-epuise inactive" onclick="setModalStatut('epuise')" id="ms-epuise">â ÃpuisÃ©</button>
           </div>
         </div>
         <div class="form-group">
           <label>Fournisseur</label>
-          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des Thés" list="fournisseurs-list" autocomplete="off" />
+          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des ThÃ©s" list="fournisseurs-list" autocomplete="off" />
           <datalist id="fournisseurs-list"></datalist>
         </div>
       </div>
 
       <div class="form-group">
-        <label>Caractéristiques</label>
+        <label>CaractÃ©ristiques</label>
         <div class="toggle-group">
-          <button type="button" class="toggle-btn" id="toggle-bio" onclick="toggleBio()">🌿 Bio</button>
-          <button type="button" class="toggle-btn" id="toggle-sauvage" onclick="toggleSauvage()">🌲 Sauvage</button>
+          <button type="button" class="toggle-btn" id="toggle-bio" onclick="toggleBio()">ð¿ Bio</button>
+          <button type="button" class="toggle-btn" id="toggle-sauvage" onclick="toggleSauvage()">ð² Sauvage</button>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Prix pour 100g (€)</label>
+          <label>Prix pour 100g (â¬)</label>
           <input type="number" id="f-prix" placeholder="0.00" min="0" step="0.01" oninput="updatePrixPrev()" />
           <div class="prix-preview" id="prix-preview"></div>
         </div>
@@ -359,7 +359,7 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
           <label>Note /20</label>
           <div class="note-widget">
             <div class="note-input-row">
-              <input type="number" id="f-note" min="0" max="20" step="0.5" placeholder="—" oninput="syncStars()" />
+              <input type="number" id="f-note" min="0" max="20" step="0.5" placeholder="â" oninput="syncStars()" />
               <span style="font-size:12px;color:var(--ink-light)">/20</span>
             </div>
             <div class="stars-interactive" id="stars-widget"></div>
@@ -370,7 +370,7 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 
       <div class="form-group">
         <label>Commentaire personnel</label>
-        <textarea id="f-commentaire" placeholder="Arômes, infusion, anecdotes…"></textarea>
+        <textarea id="f-commentaire" placeholder="ArÃ´mes, infusion, anecdotesâ¦"></textarea>
       </div>
     </div>
     <div class="modal-footer">
@@ -384,11 +384,11 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 <!-- MODAL EXPORT -->
 <div class="modal-overlay" id="modal-export">
   <div class="modal">
-    <div class="modal-header"><h2>Exporter CSV</h2><button class="modal-close" onclick="closeModal('modal-export')">✕</button></div>
+    <div class="modal-header"><h2>Exporter CSV</h2><button class="modal-close" onclick="closeModal('modal-export')">â</button></div>
     <div class="modal-body"><textarea class="csv-area" id="csv-output" readonly></textarea></div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-export')">Fermer</button>
-      <button class="btn btn-accent" onclick="downloadCSV()">↓ Télécharger</button>
+      <button class="btn btn-accent" onclick="downloadCSV()">â TÃ©lÃ©charger</button>
     </div>
   </div>
 </div>
@@ -396,11 +396,11 @@ table.tea-table td{padding:9px 13px;vertical-align:middle;}
 <!-- MODAL IMPORT -->
 <div class="modal-overlay" id="modal-import">
   <div class="modal">
-    <div class="modal-header"><h2>Importer CSV</h2><button class="modal-close" onclick="closeModal('modal-import')">✕</button></div>
+    <div class="modal-header"><h2>Importer CSV</h2><button class="modal-close" onclick="closeModal('modal-import')">â</button></div>
     <div class="modal-body">
       <p style="font-size:12px;margin-bottom:9px;color:var(--ink-light)">Format : nom,type,origine,statut,fournisseur,prix,note,commentaire</p>
       <textarea class="csv-area" id="csv-input" placeholder="nom,type,origine,statut,fournisseur,prix,note,commentaire"></textarea>
-      <p style="font-size:11px;margin-top:5px;color:#c0392b">⚠ Remplace toute la collection existante.</p>
+      <p style="font-size:11px;margin-top:5px;color:#c0392b">â  Remplace toute la collection existante.</p>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-import')">Annuler</button>
@@ -416,9 +416,9 @@ const GITHUB_OWNER='gargouille88', GITHUB_REPO='thes', GITHUB_FILE='index.html',
 let TEAS=[], editingId=null, sortField='nom', sortAsc=true;
 
 const TYPE_COLORS={'vert':'#5a7a4a','noir':'#1a1611','oolong':'#c4955a','blanc':'#c8baa8','pu-erh':'#7a4a3a','matcha':'#8aab6f','infusion':'#d4a0b0','autre':'#a0a090'};
-const TYPE_ICONS={'vert':'🍵','noir':'🫖','oolong':'🌀','blanc':'🤍','pu-erh':'🍂','matcha':'🍃','infusion':'🌸','autre':'🫙'};
-const STATUS_MAP={'en-stock':{icon:'✓',label:'En stock',cls:'st-en-stock'},'epuise':{icon:'✗',label:'Épuisé',cls:'st-epuise'},'a-racheter':{icon:'↻',label:'À racheter',cls:'st-a-racheter'}};
-const NOTE_LABELS=['','Imbuvable','Très mauvais','Mauvais','Décevant','Passable','Moyen','Correct','Bien','Très bien','Excellent','Sublime','Exceptionnel','Divin','Parfait','Chef-d\'œuvre','Incomparable','Transcendant','Mystique','Légendaire','Absolu 茶'];
+const TYPE_ICONS={'vert':'ðµ','noir':'ð«','oolong':'ð','blanc':'ð¤','pu-erh':'ð','matcha':'ð','infusion':'ð¸','autre':'ð«'};
+const STATUS_MAP={'en-stock':{icon:'â',label:'En stock',cls:'st-en-stock'},'epuise':{icon:'â',label:'ÃpuisÃ©',cls:'st-epuise'},'a-racheter':{icon:'â»',label:'Ã racheter',cls:'st-a-racheter'}};
+const NOTE_LABELS=['','Imbuvable','TrÃ¨s mauvais','Mauvais','DÃ©cevant','Passable','Moyen','Correct','Bien','TrÃ¨s bien','Excellent','Sublime','Exceptionnel','Divin','Parfait','Chef-d\'Åuvre','Incomparable','Transcendant','Mystique','LÃ©gendaire','Absolu è¶'];
 
 function init(){loadLocal();buildStars();renderAll();updateTokenStatus();populateOrigineFilter();}
 function loadLocal(){try{const r=localStorage.getItem('teas_data');if(r)TEAS=JSON.parse(r);}catch(e){}}
@@ -426,9 +426,9 @@ function saveLocal(){localStorage.setItem('teas_data',JSON.stringify(TEAS));}
 function getToken(){return localStorage.getItem('gh_token')||'';}
 
 function toggleTokenBanner(){const b=document.getElementById('token-banner');b.classList.toggle('hidden');if(!b.classList.contains('hidden'))document.getElementById('token-input').value=getToken();}
-function saveToken(){const v=document.getElementById('token-input').value.trim();if(v){localStorage.setItem('gh_token',v);showToast('Token enregistré ✓');updateTokenStatus();}}
-function clearToken(){localStorage.removeItem('gh_token');document.getElementById('token-input').value='';updateTokenStatus();showToast('Token effacé');}
-function updateTokenStatus(){const t=getToken(),el=document.getElementById('token-status'),btn=document.getElementById('btn-add');if(t){el.textContent='✓ Actif';el.style.color='#90d070';btn&&btn.classList.remove('hidden');}else{el.textContent='⚠ Lecture seule';el.style.color='#f0c060';btn&&btn.classList.add('hidden');}}
+function saveToken(){const v=document.getElementById('token-input').value.trim();if(v){localStorage.setItem('gh_token',v);showToast('Token enregistrÃ© â');updateTokenStatus();}}
+function clearToken(){localStorage.removeItem('gh_token');document.getElementById('token-input').value='';updateTokenStatus();showToast('Token effacÃ©');}
+function updateTokenStatus(){const t=getToken(),el=document.getElementById('token-status'),btn=document.getElementById('btn-add');if(t){el.textContent='â Actif';el.style.color='#90d070';btn&&btn.classList.remove('hidden');}else{el.textContent='â  Lecture seule';el.style.color='#f0c060';btn&&btn.classList.add('hidden');}}
 
 function switchTab(tab){['collection','racheter','stats'].forEach(t=>{document.getElementById('view-'+t).style.display=t===tab?'':'none';document.getElementById('tab-'+t).classList.toggle('active',t===tab);});if(tab==='stats')renderStats();if(tab==='racheter')renderRacheter();}
 
@@ -454,31 +454,31 @@ function renderAll(){renderCollection();populateOrigineFilter();}
 
 function renderCollection(){
   const teas=sortedFiltered();
-  document.getElementById('count-badge').textContent=teas.length+' thé'+(teas.length!==1?'s':'');
+  document.getElementById('count-badge').textContent=teas.length+' thÃ©'+(teas.length!==1?'s':'');
   const tbody=document.getElementById('tea-tbody'),empty=document.getElementById('tea-empty');
-  if(!teas.length){tbody.innerHTML='';empty.style.display='';document.getElementById('tea-empty-msg').textContent=TEAS.length?'Aucun thé ne correspond.':'Votre collection est vide. Ajoutez votre premier thé !';return;}
+  if(!teas.length){tbody.innerHTML='';empty.style.display='';document.getElementById('tea-empty-msg').textContent=TEAS.length?'Aucun thÃ© ne correspond.':'Votre collection est vide. Ajoutez votre premier thÃ© !';return;}
   empty.style.display='none';tbody.innerHTML=teas.map(t=>teaRow(t,false)).join('');
 }
 
 function renderRacheter(){
   const teas=TEAS.filter(t=>t.statut==='a-racheter');
-  document.getElementById('racheter-badge').textContent=teas.length+' thé'+(teas.length!==1?'s':'')+' à racheter';
+  document.getElementById('racheter-badge').textContent=teas.length+' thÃ©'+(teas.length!==1?'s':'')+' Ã  racheter';
   const tbody=document.getElementById('racheter-tbody'),empty=document.getElementById('racheter-empty');
   if(!teas.length){tbody.innerHTML='';empty.style.display='';return;}
   empty.style.display='none';tbody.innerHTML=teas.map(t=>teaRow(t,true)).join('');
 }
 
 function teaRow(t,simple){
-  const noteHtml=t.note?`${starsDisplay(t.note)}<span class="note-num">${parseFloat(t.note).toFixed(1)}/20</span>`:'<span style="color:#ccc">—</span>';
-  const prixHtml=t.prix?`<div class="prix-cell"><div class="prix-100">${parseFloat(t.prix).toFixed(2)} €/100g</div><div class="prix-kg">${(parseFloat(t.prix)*10).toFixed(2)} €/kg</div></div>`:'—';
-  const typeIcon=TYPE_ICONS[t.type]||'🫙';
+  const noteHtml=t.note?`${starsDisplay(t.note)}<span class="note-num">${parseFloat(t.note).toFixed(1)}/20</span>`:'<span style="color:#ccc">â</span>';
+  const prixHtml=t.prix?`<div class="prix-cell"><div class="prix-100">${parseFloat(t.prix).toFixed(2)} â¬/100g</div><div class="prix-kg">${(parseFloat(t.prix)*10).toFixed(2)} â¬/kg</div></div>`:'â';
+  const typeIcon=TYPE_ICONS[t.type]||'ð«';
   const typeTip=`<span class="type-badge tb-${t.type}" title="${t.type}">${typeIcon} ${t.type}</span>`;
-  const badges=`<div class="badges-cell">${t.bio?'<span title="Bio" style="font-size:14px">🌿</span>':''}${t.sauvage?'<span title="Sauvage" style="font-size:14px">🌲</span>':''}</div>`;
+  const badges=`<div class="badges-cell">${t.bio?'<span title="Bio" style="font-size:14px">ð¿</span>':''}${t.sauvage?'<span title="Sauvage" style="font-size:14px">ð²</span>':''}</div>`;
   const st=t.statut||'en-stock';
   const statutBtns=`<div class="statut-btns" onclick="event.stopPropagation()">
-    <button class="statut-btn s-en-stock${st==='en-stock'?'':' inactive'}" onclick="setStatut('${t.id}','en-stock')" title="En stock">✓</button>
-    <button class="statut-btn s-a-racheter${st==='a-racheter'?'':' inactive'}" onclick="setStatut('${t.id}','a-racheter')" title="À racheter">↻</button>
-    <button class="statut-btn s-epuise${st==='epuise'?'':' inactive'}" onclick="setStatut('${t.id}','epuise')" title="Épuisé">✗</button>
+    <button class="statut-btn s-en-stock${st==='en-stock'?'':' inactive'}" onclick="setStatut('${t.id}','en-stock')" title="En stock">â</button>
+    <button class="statut-btn s-a-racheter${st==='a-racheter'?'':' inactive'}" onclick="setStatut('${t.id}','a-racheter')" title="Ã racheter">â»</button>
+    <button class="statut-btn s-epuise${st==='epuise'?'':' inactive'}" onclick="setStatut('${t.id}','epuise')" title="ÃpuisÃ©">â</button>
   </div>`;
   return `<tr class="strip-${t.type}" onclick="openEditModal('${t.id}')">
     <td><strong>${t.nom}</strong></td>
@@ -487,15 +487,15 @@ function teaRow(t,simple){
     <td>${statutBtns}</td>
     <td style="white-space:nowrap">${noteHtml}</td>
     <td>${prixHtml}</td>
-    <td>${t.origine||'—'}</td>
-    <td>${t.fournisseur||'—'}</td>
+    <td>${t.origine||'â'}</td>
+    <td>${t.fournisseur||'â'}</td>
     <td><span class="note-preview">${t.commentaire||''}</span></td>
   </tr>`;
 }
 
 function starsDisplay(note){
   const n=parseFloat(note),full=Math.floor(n/2),half=(n%2)>=1?1:0,empty=10-full-half;
-  return `<span class="stars-row">${'<span class="star full">★</span>'.repeat(full)}${half?'<span class="star half">★</span>':''} ${'<span class="star empty">☆</span>'.repeat(empty)}</span>`;
+  return `<span class="stars-row">${'<span class="star full">â</span>'.repeat(full)}${half?'<span class="star half">â</span>':''} ${'<span class="star empty">â</span>'.repeat(empty)}</span>`;
 }
 
 function setStatut(id,statut){
@@ -517,7 +517,7 @@ function buildStars(){
     const s=document.createElement('span');
     s.className='si'+(i%2!==0?' si-half':'');
     s.dataset.val=i;
-    s.textContent=i%2===0?'★':'·';
+    s.textContent=i%2===0?'â':'Â·';
     s.title=i+'/20';
     s.onclick=()=>setNote(i);
     s.onmouseover=()=>hlStars(i);
@@ -530,7 +530,7 @@ function setNote(v){document.getElementById('f-note').value=v;hlStars(v);updateN
 function hlStars(v){document.querySelectorAll('#stars-widget .si').forEach(s=>s.classList.toggle('active',parseInt(s.dataset.val)<=v));}
 function syncStars(){const v=parseFloat(document.getElementById('f-note').value)||0;hlStars(v);updateNoteLabel(v);}
 function updateNoteLabel(v){document.getElementById('note-label').textContent=NOTE_LABELS[Math.round(v)]||'';}
-function updatePrixPrev(){const v=parseFloat(document.getElementById('f-prix').value);document.getElementById('prix-preview').textContent=(!isNaN(v)&&v>0)?`→ ${(v*10).toFixed(2)} €/kg`:'';}
+function updatePrixPrev(){const v=parseFloat(document.getElementById('f-prix').value);document.getElementById('prix-preview').textContent=(!isNaN(v)&&v>0)?`â ${(v*10).toFixed(2)} â¬/kg`:'';}
 function applyOrigSel(){const s=document.getElementById('f-origine-sel');if(s.value){document.getElementById('f-origine').value=s.value;s.value='';}}
 
 let _bio=false, _sauvage=false, _statut='en-stock';
@@ -553,7 +553,7 @@ function updateFournisseursList(){
 }
 
 function openAddModal(){
-  editingId=null;document.getElementById('modal-title').textContent='Nouveau thé';
+  editingId=null;document.getElementById('modal-title').textContent='Nouveau thÃ©';
   ['nom','origine','fournisseur','commentaire'].forEach(f=>document.getElementById('f-'+f).value='');
   document.getElementById('f-prix').value='';document.getElementById('f-note').value='';
   document.getElementById('f-type').value='vert';
@@ -605,7 +605,7 @@ function saveTea(){
   closeModal('modal-tea');saveLocal();renderAll();pushToGitHub();
 }
 
-function deleteTea(){if(!editingId||!confirm('Supprimer ce thé ?'))return;TEAS=TEAS.filter(t=>t.id!==editingId);closeModal('modal-tea');saveLocal();renderAll();pushToGitHub();}
+function deleteTea(){if(!editingId||!confirm('Supprimer ce thÃ© ?'))return;TEAS=TEAS.filter(t=>t.id!==editingId);closeModal('modal-tea');saveLocal();renderAll();pushToGitHub();}
 
 const CSV_H=['nom','type','origine','statut','fournisseur','prix','note','commentaire','bio','sauvage'];
 function teasToCSV(){return[CSV_H.join(','),...TEAS.map(t=>CSV_H.map(h=>`"${(t[h]||'').replace(/"/g,'""')}"`).join(','))].join('\n');}
@@ -620,26 +620,26 @@ function importCSV(){
   const newT=[];
   for(let i=1;i<lines.length;i++){const cells=lines[i].match(/("(?:[^"]|"")*"|[^,]*)/g)||[];const nom=parse(cells[idx('nom')]||'');if(!nom)continue;
     newT.push({id:Date.now().toString(36)+i+Math.random().toString(36).slice(2),nom,type:parse(cells[idx('type')]||'')||'autre',origine:parse(cells[idx('origine')]||''),statut:parse(cells[idx('statut')]||'')||'en-stock',fournisseur:parse(cells[idx('fournisseur')]||''),prix:parse(cells[idx('prix')]||''),note:parse(cells[idx('note')]||''),commentaire:parse(cells[idx('commentaire')]||''),bio:parse(cells[idx('bio')]||'')==='true',sauvage:parse(cells[idx('sauvage')]||'')==='true'});}
-  TEAS=newT;saveLocal();renderAll();closeModal('modal-import');pushToGitHub();showToast(`${newT.length} thés importés ✓`);
+  TEAS=newT;saveLocal();renderAll();closeModal('modal-import');pushToGitHub();showToast(`${newT.length} thÃ©s importÃ©s â`);
 }
 
 function renderStats(){
   const total=TEAS.length,enStock=TEAS.filter(t=>t.statut==='en-stock').length,epuises=TEAS.filter(t=>t.statut==='epuise').length,aR=TEAS.filter(t=>t.statut==='a-racheter').length;
   const valeur=TEAS.filter(t=>t.prix).reduce((s,t)=>s+parseFloat(t.prix),0);
-  const noted=TEAS.filter(t=>t.note);const avgNote=noted.length?(noted.reduce((s,t)=>s+parseFloat(t.note),0)/noted.length).toFixed(1):'—';
+  const noted=TEAS.filter(t=>t.note);const avgNote=noted.length?(noted.reduce((s,t)=>s+parseFloat(t.note),0)/noted.length).toFixed(1):'â';
   document.getElementById('stats-cards').innerHTML=`
     <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">Total</div></div>
     <div class="stat-card accent"><div class="stat-value">${enStock}</div><div class="stat-label">En stock</div></div>
-    <div class="stat-card orange"><div class="stat-value">${aR}</div><div class="stat-label">À racheter</div></div>
-    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">Épuisés</div></div>
-    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}€</div><div class="stat-label">Valeur /100g</div></div>
+    <div class="stat-card orange"><div class="stat-value">${aR}</div><div class="stat-label">Ã racheter</div></div>
+    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">ÃpuisÃ©s</div></div>
+    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}â¬</div><div class="stat-label">Valeur /100g</div></div>
     <div class="stat-card gold"><div class="stat-value">${avgNote}</div><div class="stat-label">Note moy. /20</div></div>`;
   const byT={};TEAS.forEach(t=>byT[t.type]=(byT[t.type]||0)+1);const mT=Math.max(...Object.values(byT),1);
   document.getElementById('chart-type').innerHTML=Object.entries(byT).sort((a,b)=>b[1]-a[1]).map(([type,cnt])=>`<div class="bar-row"><div class="bar-label">${type}</div><div class="bar-track"><div class="bar-fill" style="width:${cnt/mT*100}%;background:${TYPE_COLORS[type]||'#888'}"></div></div><div class="bar-count">${cnt}</div></div>`).join('');
   const byO={};TEAS.forEach(t=>{if(t.origine)byO[t.origine]=(byO[t.origine]||0)+1;});const mO=Math.max(...Object.values(byO),1);
   document.getElementById('chart-origine').innerHTML=Object.entries(byO).sort((a,b)=>b[1]-a[1]).map(([o,cnt])=>`<div class="bar-row"><div class="bar-label">${o}</div><div class="bar-track"><div class="bar-fill" style="width:${cnt/mO*100}%;background:var(--tea-green)"></div></div><div class="bar-count">${cnt}</div></div>`).join('')||'<p style="color:var(--ink-light);font-size:12px">Aucune origine.</p>';
   const byF={};TEAS.forEach(t=>{if(!t.fournisseur)return;if(!byF[t.fournisseur])byF[t.fournisseur]={count:0,valeur:0,notes:[]};byF[t.fournisseur].count++;if(t.prix)byF[t.fournisseur].valeur+=parseFloat(t.prix);if(t.note)byF[t.fournisseur].notes.push(parseFloat(t.note));});
-  document.querySelector('#table-fournisseurs tbody').innerHTML=Object.entries(byF).sort((a,b)=>b[1].count-a[1].count).map(([f,d])=>{const avg=d.notes.length?(d.notes.reduce((s,v)=>s+v,0)/d.notes.length).toFixed(1)+'/20':'—';return`<tr><td>${f}</td><td>${d.count}</td><td>${avg}</td><td>${d.valeur>0?d.valeur.toFixed(2)+' €':'—'}</td></tr>`;}).join('')||'<tr><td colspan="4" style="color:var(--ink-light);font-style:italic">Aucun fournisseur.</td></tr>';
+  document.querySelector('#table-fournisseurs tbody').innerHTML=Object.entries(byF).sort((a,b)=>b[1].count-a[1].count).map(([f,d])=>{const avg=d.notes.length?(d.notes.reduce((s,v)=>s+v,0)/d.notes.length).toFixed(1)+'/20':'â';return`<tr><td>${f}</td><td>${d.count}</td><td>${avg}</td><td>${d.valeur>0?d.valeur.toFixed(2)+' â¬':'â'}</td></tr>`;}).join('')||'<tr><td colspan="4" style="color:var(--ink-light);font-style:italic">Aucun fournisseur.</td></tr>';
 }
 
 function openModal(id){document.getElementById(id).classList.add('open');}
@@ -655,13 +655,14 @@ async function pushToGitHub(){
     const res=await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`,{headers:{Authorization:`token ${token}`,Accept:'application/vnd.github.v3+json'}});
     const fd=await res.json();
     let html=atob(fd.content.replace(/\n/g,''));
-    const marker='/* __TEAS_DATA__ */';
+    const marker='/* __TEAS_DATA__ */
+const TEAS_INIT=[{"id":"mnlzzf6ayj53bfykc5","nom":"Chinois Rouge","type":"noir","origine":"Yunnan, Chine","statut":"en-stock","fournisseur":"Kancha","prix":"18","note":"16","commentaire":"","bio":false,"sauvage":true},{"id":"mnm0xaml0lp0akjd50uh","nom":"Golden Yunan","type":"noir","origine":"Yunnan, Chine","statut":"a-racheter","fournisseur":"Palais Des thés","prix":"20.50","note":"16","commentaire":"","bio":true,"sauvage":false}];
     const nb=`/* __TEAS_DATA__ */\nconst TEAS_INIT=${JSON.stringify(TEAS)};`;
     html=html.includes(marker)?html.replace(/\/\* __TEAS_DATA__ \*\/[\s\S]*?;/,nb):html.replace('function init(){',nb+'\n\nfunction init(){');
     const content=btoa(unescape(encodeURIComponent(html)));
-    await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,{method:'PUT',headers:{Authorization:`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify({message:'update: collection de thés',content,sha:fd.sha,branch:GITHUB_BRANCH})});
-    showToast('Sauvegardé sur GitHub ✓');
-  }catch(e){console.error(e);showToast('Erreur GitHub – sauvegardé en local');}
+    await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`,{method:'PUT',headers:{Authorization:`token ${token}`,'Content-Type':'application/json'},body:JSON.stringify({message:'update: collection de thÃ©s',content,sha:fd.sha,branch:GITHUB_BRANCH})});
+    showToast('SauvegardÃ© sur GitHub â');
+  }catch(e){console.error(e);showToast('Erreur GitHub â sauvegardÃ© en local');}
   finally{setSaving(false);}
 }
 function setSaving(v){document.getElementById('saving-indicator').classList.toggle('visible',v);}
