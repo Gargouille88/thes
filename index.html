@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ma Collection de Thés</title>
+<title>Ma Collection de ThÃ©s</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -621,19 +621,19 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
 
 <header>
   <div class="header-title">
-    <h1>☕ Ma Collection de Thés</h1>
-    <span class="kanji">茶</span>
+    <h1>â Ma Collection de ThÃ©s</h1>
+    <span class="kanji">è¶</span>
   </div>
   <div class="header-actions">
-    <div id="saving-indicator"><div class="spinner"></div> Sauvegarde…</div>
-    <button class="btn btn-outline" onclick="openExportModal()">↓ Exporter CSV</button>
-    <button class="btn btn-outline" onclick="openImportModal()">↑ Importer CSV</button>
-    <button id="btn-token-toggle" class="btn btn-outline" onclick="toggleTokenBanner()">🔑 Token</button>
+    <div id="saving-indicator"><div class="spinner"></div> Sauvegardeâ¦</div>
+    <button class="btn btn-outline" onclick="openExportModal()">â Exporter CSV</button>
+    <button class="btn btn-outline" onclick="openImportModal()">â Importer CSV</button>
+    <button id="btn-token-toggle" class="btn btn-outline" onclick="toggleTokenBanner()">ð Token</button>
   </div>
 </header>
 
 <div id="token-banner" class="hidden">
-  <span>Token GitHub (stocké dans votre navigateur) :</span>
+  <span>Token GitHub (stockÃ© dans votre navigateur) :</span>
   <input type="password" id="token-input" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" />
   <button class="btn btn-accent" onclick="saveToken()">Enregistrer</button>
   <button class="btn btn-outline" onclick="clearToken()">Effacer</button>
@@ -642,7 +642,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
 
 <nav class="tabs">
   <button class="tab-btn active" onclick="switchTab('collection')" id="tab-collection">Collection</button>
-  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">À racheter</button>
+  <button class="tab-btn" onclick="switchTab('racheter')" id="tab-racheter">Ã racheter</button>
   <button class="tab-btn" onclick="switchTab('stats')" id="tab-stats">Statistiques</button>
 </nav>
 
@@ -650,7 +650,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
   <!-- TAB COLLECTION -->
   <div id="view-collection">
     <div class="filters-bar">
-      <input type="text" id="search" placeholder="Rechercher un thé…" oninput="renderCollection()" />
+      <input type="text" id="search" placeholder="Rechercher un thÃ©â¦" oninput="renderCollection()" />
       <select id="filter-type" onchange="renderCollection()">
         <option value="">Tous les types</option>
         <option value="vert">Vert</option>
@@ -665,8 +665,8 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
       <select id="filter-statut" onchange="renderCollection()">
         <option value="">Tous les statuts</option>
         <option value="en-stock">En stock</option>
-        <option value="epuise">Épuisé</option>
-        <option value="a-racheter">À racheter</option>
+        <option value="epuise">ÃpuisÃ©</option>
+        <option value="a-racheter">Ã racheter</option>
       </select>
       <select id="filter-origine" onchange="renderCollection()">
         <option value="">Toutes origines</option>
@@ -677,7 +677,7 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
     <div class="tea-grid" id="tea-grid"></div>
   </div>
 
-  <!-- TAB À RACHETER -->
+  <!-- TAB Ã RACHETER -->
   <div id="view-racheter" style="display:none">
     <div class="filters-bar">
       <span class="count-badge" id="racheter-badge"></span>
@@ -689,29 +689,29 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
   <div id="view-stats" style="display:none">
     <div class="stats-grid" id="stats-cards"></div>
     <div class="bar-chart">
-      <div class="section-title">🍵 Répartition par type</div>
+      <div class="section-title">ðµ RÃ©partition par type</div>
       <div id="chart-type"></div>
     </div>
     <div class="bar-chart">
-      <div class="section-title">🌍 Origines</div>
+      <div class="section-title">ð Origines</div>
       <div id="chart-origine"></div>
     </div>
     <div>
-      <div class="section-title">🏪 Fournisseurs</div>
+      <div class="section-title">ðª Fournisseurs</div>
       <table class="fournisseur-table" id="table-fournisseurs">
-        <thead><tr><th>Fournisseur</th><th>Thés</th><th>Valeur estimée</th></tr></thead>
+        <thead><tr><th>Fournisseur</th><th>ThÃ©s</th><th>Valeur estimÃ©e</th></tr></thead>
         <tbody></tbody>
       </table>
     </div>
   </div>
 </main>
 
-<!-- MODAL THÉE -->
+<!-- MODAL THÃE -->
 <div class="modal-overlay" id="modal-tea">
   <div class="modal">
     <div class="modal-header">
-      <h2 id="modal-title">Nouveau thé</h2>
-      <button class="modal-close" onclick="closeModal('modal-tea')">✕</button>
+      <h2 id="modal-title">Nouveau thÃ©</h2>
+      <button class="modal-close" onclick="closeModal('modal-tea')">â</button>
     </div>
     <div class="modal-body">
       <div class="form-row">
@@ -735,31 +735,31 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Origine (pays/région)</label>
+          <label>Origine (pays/rÃ©gion)</label>
           <input type="text" id="f-origine" placeholder="Ex: Uji, Japon" />
         </div>
         <div class="form-group">
           <label>Statut</label>
           <select id="f-statut">
             <option value="en-stock">En stock</option>
-            <option value="epuise">Épuisé</option>
-            <option value="a-racheter">À racheter</option>
+            <option value="epuise">ÃpuisÃ©</option>
+            <option value="a-racheter">Ã racheter</option>
           </select>
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
           <label>Fournisseur</label>
-          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des Thés" />
+          <input type="text" id="f-fournisseur" placeholder="Ex: Palais des ThÃ©s" />
         </div>
         <div class="form-group">
-          <label>Prix d'achat (€)</label>
+          <label>Prix d'achat (â¬)</label>
           <input type="number" id="f-prix" placeholder="0.00" min="0" step="0.01" />
         </div>
       </div>
       <div class="form-group">
         <label>Note personnelle</label>
-        <textarea id="f-note" placeholder="Arômes, conseils d'infusion, anecdotes…"></textarea>
+        <textarea id="f-note" placeholder="ArÃ´mes, conseils d'infusion, anecdotesâ¦"></textarea>
       </div>
     </div>
     <div class="modal-footer">
@@ -775,15 +775,15 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
   <div class="modal">
     <div class="modal-header">
       <h2>Exporter CSV</h2>
-      <button class="modal-close" onclick="closeModal('modal-export')">✕</button>
+      <button class="modal-close" onclick="closeModal('modal-export')">â</button>
     </div>
     <div class="modal-body">
-      <p style="font-size:13px;margin-bottom:12px;color:var(--ink-light)">Copiez ou téléchargez ce fichier CSV.</p>
+      <p style="font-size:13px;margin-bottom:12px;color:var(--ink-light)">Copiez ou tÃ©lÃ©chargez ce fichier CSV.</p>
       <textarea class="csv-area" id="csv-output" readonly></textarea>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-export')">Fermer</button>
-      <button class="btn btn-accent" onclick="downloadCSV()">↓ Télécharger</button>
+      <button class="btn btn-accent" onclick="downloadCSV()">â TÃ©lÃ©charger</button>
     </div>
   </div>
 </div>
@@ -793,12 +793,12 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
   <div class="modal">
     <div class="modal-header">
       <h2>Importer CSV</h2>
-      <button class="modal-close" onclick="closeModal('modal-import')">✕</button>
+      <button class="modal-close" onclick="closeModal('modal-import')">â</button>
     </div>
     <div class="modal-body">
-      <p style="font-size:13px;margin-bottom:12px;color:var(--ink-light)">Collez votre CSV (format : nom,type,origine,statut,fournisseur,prix,note). La première ligne doit être l'en-tête.</p>
-      <textarea class="csv-area" id="csv-input" placeholder="nom,type,origine,statut,fournisseur,prix,note&#10;Gyokuro,vert,Uji Japon,en-stock,Palais des Thés,12.50,Très floral"></textarea>
-      <p style="font-size:12px;margin-top:8px;color:#c0392b">⚠ L'import remplacera toute la collection existante.</p>
+      <p style="font-size:13px;margin-bottom:12px;color:var(--ink-light)">Collez votre CSV (format : nom,type,origine,statut,fournisseur,prix,note). La premiÃ¨re ligne doit Ãªtre l'en-tÃªte.</p>
+      <textarea class="csv-area" id="csv-input" placeholder="nom,type,origine,statut,fournisseur,prix,note&#10;Gyokuro,vert,Uji Japon,en-stock,Palais des ThÃ©s,12.50,TrÃ¨s floral"></textarea>
+      <p style="font-size:12px;margin-top:8px;color:#c0392b">â  L'import remplacera toute la collection existante.</p>
     </div>
     <div class="modal-footer">
       <button class="btn btn-outline" onclick="closeModal('modal-import')">Annuler</button>
@@ -810,13 +810,13 @@ main { max-width: 1200px; margin: 0 auto; padding: 32px 40px; }
 <div class="toast" id="toast"></div>
 
 <script>
-// ─── CONFIG GITHUB ───────────────────────────────────────────────────────────
+// âââ CONFIG GITHUB âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 const GITHUB_OWNER = 'gargouille88';
-const GITHUB_REPO  = 'thes';           // ← à adapter si besoin
+const GITHUB_REPO  = 'thes';           // â Ã  adapter si besoin
 const GITHUB_FILE  = 'index.html';
 const GITHUB_BRANCH = 'main';
 
-// ─── STATE ───────────────────────────────────────────────────────────────────
+// âââ STATE âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 let TEAS = [];
 let editingId = null;
 let currentTab = 'collection';
@@ -833,12 +833,12 @@ const TYPE_COLORS = {
 };
 
 const STATUS_ICONS = {
-  'en-stock':   { icon: '✓', label: 'En stock',    cls: 'status-en-stock' },
-  'epuise':     { icon: '✗', label: 'Épuisé',       cls: 'status-epuise' },
-  'a-racheter': { icon: '↻', label: 'À racheter',  cls: 'status-a-racheter' },
+  'en-stock':   { icon: 'â', label: 'En stock',    cls: 'status-en-stock' },
+  'epuise':     { icon: 'â', label: 'ÃpuisÃ©',       cls: 'status-epuise' },
+  'a-racheter': { icon: 'â»', label: 'Ã racheter',  cls: 'status-a-racheter' },
 };
 
-// ─── INIT ─────────────────────────────────────────────────────────────────────
+// âââ INIT âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function init() {
   loadLocal();
   renderAll();
@@ -846,7 +846,7 @@ function init() {
   populateOrigineFilter();
 }
 
-// ─── STORAGE ─────────────────────────────────────────────────────────────────
+// âââ STORAGE âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function loadLocal() {
   try {
     const raw = localStorage.getItem('teas_data');
@@ -862,7 +862,7 @@ function getToken() {
   return localStorage.getItem('gh_token') || '';
 }
 
-// ─── TOKEN UI ─────────────────────────────────────────────────────────────────
+// âââ TOKEN UI âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function toggleTokenBanner() {
   const b = document.getElementById('token-banner');
   b.classList.toggle('hidden');
@@ -875,7 +875,7 @@ function saveToken() {
   const v = document.getElementById('token-input').value.trim();
   if (v) {
     localStorage.setItem('gh_token', v);
-    showToast('Token enregistré ✓');
+    showToast('Token enregistrÃ© â');
     updateTokenStatus();
   }
 }
@@ -884,7 +884,7 @@ function clearToken() {
   localStorage.removeItem('gh_token');
   document.getElementById('token-input').value = '';
   updateTokenStatus();
-  showToast('Token effacé');
+  showToast('Token effacÃ©');
 }
 
 function updateTokenStatus() {
@@ -892,17 +892,17 @@ function updateTokenStatus() {
   const el = document.getElementById('token-status');
   const addBtn = document.getElementById('btn-add');
   if (t) {
-    el.textContent = '✓ Token présent';
+    el.textContent = 'â Token prÃ©sent';
     el.style.color = '#90d070';
     if (addBtn) addBtn.classList.remove('hidden');
   } else {
-    el.textContent = '⚠ Lecture seule';
+    el.textContent = 'â  Lecture seule';
     el.style.color = '#f0c060';
     if (addBtn) addBtn.classList.add('hidden');
   }
 }
 
-// ─── TABS ─────────────────────────────────────────────────────────────────────
+// âââ TABS âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function switchTab(tab) {
   currentTab = tab;
   ['collection','racheter','stats'].forEach(t => {
@@ -913,7 +913,7 @@ function switchTab(tab) {
   if (tab === 'racheter') renderRacheter();
 }
 
-// ─── RENDER ───────────────────────────────────────────────────────────────────
+// âââ RENDER âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function renderAll() {
   renderCollection();
   populateOrigineFilter();
@@ -937,10 +937,10 @@ function filteredTeas() {
 function renderCollection() {
   const grid = document.getElementById('tea-grid');
   const teas = filteredTeas();
-  document.getElementById('count-badge').textContent = teas.length + ' thé' + (teas.length !== 1 ? 's' : '');
+  document.getElementById('count-badge').textContent = teas.length + ' thÃ©' + (teas.length !== 1 ? 's' : '');
 
   if (!teas.length) {
-    grid.innerHTML = `<div class="empty-state"><div class="icon">🍵</div><p>${TEAS.length ? 'Aucun thé ne correspond aux filtres.' : 'Votre collection est vide.<br>Ajoutez votre premier thé !'}</p></div>`;
+    grid.innerHTML = `<div class="empty-state"><div class="icon">ðµ</div><p>${TEAS.length ? 'Aucun thÃ© ne correspond aux filtres.' : 'Votre collection est vide.<br>Ajoutez votre premier thÃ© !'}</p></div>`;
     return;
   }
   grid.innerHTML = teas.map(teaCard).join('');
@@ -948,7 +948,7 @@ function renderCollection() {
 
 function teaCard(t) {
   const s = STATUS_ICONS[t.statut] || STATUS_ICONS['en-stock'];
-  const prix = t.prix ? `<div class="tea-price">💰 ${parseFloat(t.prix).toFixed(2)} €${t.fournisseur ? ' · ' + t.fournisseur : ''}</div>` : (t.fournisseur ? `<div class="tea-price">🏪 ${t.fournisseur}</div>` : '');
+  const prix = t.prix ? `<div class="tea-price">ð° ${parseFloat(t.prix).toFixed(2)} â¬${t.fournisseur ? ' Â· ' + t.fournisseur : ''}</div>` : (t.fournisseur ? `<div class="tea-price">ðª ${t.fournisseur}</div>` : '');
   const note = t.note ? `<div class="tea-note">${t.note}</div>` : '';
   return `
   <div class="tea-card type-${t.type}" onclick="openEditModal('${t.id}')">
@@ -957,7 +957,7 @@ function teaCard(t) {
       <div class="tea-name">${t.nom}</div>
       <div class="tea-meta">
         <span class="tea-type-badge">${t.type}</span>
-        ${t.origine ? `<span>📍 ${t.origine}</span>` : ''}
+        ${t.origine ? `<span>ð ${t.origine}</span>` : ''}
       </div>
       <div class="tea-status ${s.cls}">${s.icon} ${s.label}</div>
       ${prix}
@@ -969,9 +969,9 @@ function teaCard(t) {
 function renderRacheter() {
   const grid = document.getElementById('racheter-grid');
   const teas = TEAS.filter(t => t.statut === 'a-racheter');
-  document.getElementById('racheter-badge').textContent = teas.length + ' thé' + (teas.length !== 1 ? 's' : '') + ' à racheter';
+  document.getElementById('racheter-badge').textContent = teas.length + ' thÃ©' + (teas.length !== 1 ? 's' : '') + ' Ã  racheter';
   if (!teas.length) {
-    grid.innerHTML = `<div class="empty-state"><div class="icon">✓</div><p>Aucun thé à racheter pour l'instant !</p></div>`;
+    grid.innerHTML = `<div class="empty-state"><div class="icon">â</div><p>Aucun thÃ© Ã  racheter pour l'instant !</p></div>`;
     return;
   }
   grid.innerHTML = teas.map(teaCard).join('');
@@ -985,7 +985,7 @@ function populateOrigineFilter() {
   sel.value = current;
 }
 
-// ─── STATS ────────────────────────────────────────────────────────────────────
+// âââ STATS ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function renderStats() {
   const total = TEAS.length;
   const enStock = TEAS.filter(t => t.statut === 'en-stock').length;
@@ -994,11 +994,11 @@ function renderStats() {
   const valeur = TEAS.filter(t => t.prix).reduce((s,t) => s + parseFloat(t.prix), 0);
 
   document.getElementById('stats-cards').innerHTML = `
-    <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">Thés au total</div></div>
+    <div class="stat-card"><div class="stat-value">${total}</div><div class="stat-label">ThÃ©s au total</div></div>
     <div class="stat-card accent"><div class="stat-value">${enStock}</div><div class="stat-label">En stock</div></div>
-    <div class="stat-card orange"><div class="stat-value">${aRacheter}</div><div class="stat-label">À racheter</div></div>
-    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">Épuisés</div></div>
-    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}€</div><div class="stat-label">Valeur estimée</div></div>
+    <div class="stat-card orange"><div class="stat-value">${aRacheter}</div><div class="stat-label">Ã racheter</div></div>
+    <div class="stat-card red"><div class="stat-value">${epuises}</div><div class="stat-label">ÃpuisÃ©s</div></div>
+    <div class="stat-card"><div class="stat-value">${valeur.toFixed(0)}â¬</div><div class="stat-label">Valeur estimÃ©e</div></div>
   `;
 
   // Par type
@@ -1025,7 +1025,7 @@ function renderStats() {
       <div class="bar-label">${o}</div>
       <div class="bar-track"><div class="bar-fill" style="width:${cnt/maxOrig*100}%;background:var(--tea-green)"></div></div>
       <div class="bar-count">${cnt}</div>
-    </div>`).join('') || '<p style="color:var(--ink-light);font-size:13px">Aucune origine renseignée.</p>';
+    </div>`).join('') || '<p style="color:var(--ink-light);font-size:13px">Aucune origine renseignÃ©e.</p>';
 
   // Fournisseurs
   const byFourn = {};
@@ -1037,14 +1037,14 @@ function renderStats() {
   });
   const tbody = document.querySelector('#table-fournisseurs tbody');
   tbody.innerHTML = Object.entries(byFourn).sort((a,b) => b[1].count-a[1].count)
-    .map(([f, d]) => `<tr><td>${f}</td><td>${d.count}</td><td>${d.valeur > 0 ? d.valeur.toFixed(2)+' €' : '—'}</td></tr>`)
-    .join('') || '<tr><td colspan="3" style="color:var(--ink-light);font-style:italic">Aucun fournisseur renseigné.</td></tr>';
+    .map(([f, d]) => `<tr><td>${f}</td><td>${d.count}</td><td>${d.valeur > 0 ? d.valeur.toFixed(2)+' â¬' : 'â'}</td></tr>`)
+    .join('') || '<tr><td colspan="3" style="color:var(--ink-light);font-style:italic">Aucun fournisseur renseignÃ©.</td></tr>';
 }
 
-// ─── MODAL THÉE ───────────────────────────────────────────────────────────────
+// âââ MODAL THÃE âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function openAddModal() {
   editingId = null;
-  document.getElementById('modal-title').textContent = 'Nouveau thé';
+  document.getElementById('modal-title').textContent = 'Nouveau thÃ©';
   ['nom','origine','fournisseur','note'].forEach(f => document.getElementById('f-'+f).value = '');
   document.getElementById('f-prix').value = '';
   document.getElementById('f-type').value = 'vert';
@@ -1103,7 +1103,7 @@ function saveTea() {
 
 function deleteTea() {
   if (!editingId) return;
-  if (!confirm('Supprimer ce thé ?')) return;
+  if (!confirm('Supprimer ce thÃ© ?')) return;
   TEAS = TEAS.filter(t => t.id !== editingId);
   closeModal('modal-tea');
   saveLocal();
@@ -1111,7 +1111,7 @@ function deleteTea() {
   pushToGitHub();
 }
 
-// ─── CSV ──────────────────────────────────────────────────────────────────────
+// âââ CSV ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function teasToCSV() {
   const headers = ['nom','type','origine','statut','fournisseur','prix','note'];
   const rows = TEAS.map(t => headers.map(h => `"${(t[h]||'').replace(/"/g,'""')}"`).join(','));
@@ -1164,26 +1164,27 @@ function importCSV() {
   renderAll();
   closeModal('modal-import');
   pushToGitHub();
-  showToast(`${newTeas.length} thés importés ✓`);
+  showToast(`${newTeas.length} thÃ©s importÃ©s â`);
 }
 
-// ─── GITHUB PUSH ──────────────────────────────────────────────────────────────
+// âââ GITHUB PUSH ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 async function pushToGitHub() {
   const token = getToken();
   if (!token) return;
 
   setSaving(true);
   try {
-    // 1. Récupérer le SHA actuel
+    // 1. RÃ©cupÃ©rer le SHA actuel
     const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}?ref=${GITHUB_BRANCH}`, {
       headers: { Authorization: `token ${token}`, Accept: 'application/vnd.github.v3+json' }
     });
     const fileData = await res.json();
     const sha = fileData.sha;
 
-    // 2. Lire le HTML actuel et mettre à jour le bloc TEAS
+    // 2. Lire le HTML actuel et mettre Ã  jour le bloc TEAS
     let html = atob(fileData.content.replace(/\n/g,''));
-    const marker = '/* __TEAS_DATA__ */';
+    const marker = '/* __TEAS_DATA__ */
+const TEAS_INIT = [{"id":"mnlzzf6ayj53bfykc5","nom":"Chinois Rouge","type":"noir","origine":"Chine","statut":"en-stock","fournisseur":"Kancha","prix":"18","note":""}];
     const newBlock = `/* __TEAS_DATA__ */\nconst TEAS_INIT = ${JSON.stringify(TEAS)};`;
     if (html.includes(marker)) {
       html = html.replace(/\/\* __TEAS_DATA__ \*\/[\s\S]*?;/, newBlock);
@@ -1197,12 +1198,12 @@ async function pushToGitHub() {
     await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${GITHUB_FILE}`, {
       method: 'PUT',
       headers: { Authorization: `token ${token}`, 'Content-Type': 'application/json' },
-      body: JSON.stringify({ message: 'update: collection de thés', content, sha, branch: GITHUB_BRANCH })
+      body: JSON.stringify({ message: 'update: collection de thÃ©s', content, sha, branch: GITHUB_BRANCH })
     });
-    showToast('Sauvegardé sur GitHub ✓');
+    showToast('SauvegardÃ© sur GitHub â');
   } catch(e) {
     console.error(e);
-    showToast('Erreur GitHub – données sauvegardées en local');
+    showToast('Erreur GitHub â donnÃ©es sauvegardÃ©es en local');
   } finally {
     setSaving(false);
   }
@@ -1212,7 +1213,7 @@ function setSaving(v) {
   document.getElementById('saving-indicator').classList.toggle('visible', v);
 }
 
-// ─── MODALS ───────────────────────────────────────────────────────────────────
+// âââ MODALS âââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 function openModal(id) { document.getElementById(id).classList.add('open'); }
 function closeModal(id) { document.getElementById(id).classList.remove('open'); }
 
@@ -1220,7 +1221,7 @@ document.querySelectorAll('.modal-overlay').forEach(m => {
   m.addEventListener('click', e => { if (e.target === m) m.classList.remove('open'); });
 });
 
-// ─── TOAST ────────────────────────────────────────────────────────────────────
+// âââ TOAST ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 let toastTimer;
 function showToast(msg) {
   const t = document.getElementById('toast');
@@ -1230,13 +1231,13 @@ function showToast(msg) {
   toastTimer = setTimeout(() => t.classList.remove('show'), 2800);
 }
 
-// ─── PERSISTENT DATA (injecté par GitHub push) ───────────────────────────────
+// âââ PERSISTENT DATA (injectÃ© par GitHub push) âââââââââââââââââââââââââââââââ
 /* __TEAS_DATA__ */
 const TEAS_INIT = [];
 
-// ─── START ────────────────────────────────────────────────────────────────────
+// âââ START ââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââââ
 document.addEventListener('DOMContentLoaded', () => {
-  // Si localStorage vide, utiliser les données du fichier
+  // Si localStorage vide, utiliser les donnÃ©es du fichier
   if (!localStorage.getItem('teas_data') && TEAS_INIT.length) {
     TEAS = TEAS_INIT;
     saveLocal();
